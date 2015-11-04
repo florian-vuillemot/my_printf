@@ -5,20 +5,23 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Oct  5 16:51:46 2015 Florian Vuillemot
-** Last update Tue Nov  3 22:07:51 2015 Florian Vuillemot
+** Last update Wed Nov  4 11:18:27 2015 Florian Vuillemot
 */
 
-#include "my_string.h"
+#include	"my_put_number.h"
 
-static void	rec_putnbre(long int nbr, long int nb_base, char *base)
+static int	rec_putnbre(long int nbr, long int nb_base, char *base)
 {
+  int		res;
+
   if (nbr < nb_base)
     {
       my_putchar(base[nbr]);
-      return ;
+      return (1);
     }
-  rec_putnbre(nbr / nb_base, nb_base, base);
+  res = rec_putnbre(nbr / nb_base, nb_base, base);
   my_putchar(base[nbr % nb_base]);
+  return (res + 1);
 }
 
 int		my_putnbr_base(int nbr, char *base)
@@ -33,12 +36,46 @@ int		my_putnbr_base(int nbr, char *base)
       nb = nbr;
       nb = nb * -1;
       my_putchar('-');
+      nbr = 1;
     }
   else
-    nb = nbr;
+    {
+      nb = nbr;
+      nbr = 0;
+    }
   nb_base = 0;
   while (base[nb_base])
     nb_base = nb_base + 1;
-  rec_putnbre(nb, nb_base, base);
-  return (nbr);
+  return (rec_putnbre(nb, nb_base, base) + nbr);
+}
+
+
+static int	unsigned_rec_putnbre(unsigned long int nbr,
+				     unsigned long int nb_base,
+				     char *base)
+{
+  int		res;
+
+  if (nbr < nb_base)
+    {
+      my_putchar(base[nbr]);
+      return (1);
+    }
+  res = rec_putnbre(nbr / nb_base, nb_base, base);
+  my_putchar(base[nbr % nb_base]);
+  return (res + 1);
+}
+
+int		my_put_long_unsigned_nbr_base(unsigned long int nbr,
+					      char *base)
+{
+  long int	nb_base;
+
+  if (!base || *base == '\0')
+    return (nbr);
+  nb_base = 0;
+  while (base[nb_base])
+    nb_base = nb_base + 1;
+  my_putstr("0x");
+  return (2 + unsigned_rec_putnbre(nbr, (unsigned long int)nb_base, base));
 }

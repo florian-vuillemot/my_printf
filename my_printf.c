@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:41:04 2015 Florian Vuillemot
-** Last update Tue Nov  3 22:31:07 2015 Florian Vuillemot
+** Last update Wed Nov  4 09:31:00 2015 Florian Vuillemot
 */
 
 #include "my_printf.h"
@@ -15,12 +15,12 @@ static t_flag_and_fct	tab_flag_and_function[] =
 			{"c", &print_char},
 			{"s", &print_string},
 			{"S", &print_string_and_all_char},
-			/* {"d", &print_integer}, */
-			/* {"i", &print_integer}, */
-			/* {"u", &print_unsigned}, */
+			{"d", &print_integer},
+			{"i", &print_integer},
+			{"u", &print_unsigned},
+			{"ld", &print_long},
+			{"p", &print_pointer},
 			/* {"f", &print_float}, */
-			/* {"l", &print_long}, */
-			/* {"p", &print_pointer}, */
 			/* {"hd", &print_short}, */
 			/* {"x", &print_hexa}, */
 			/* {"o", &print_octal}, */
@@ -59,12 +59,12 @@ int		my_printf(char *string, ...)
 	  while (cmp_flags(tab_flag_and_function[j].flag, &string[i + 1]))
 	    j = j + 1;
 	  if (tab_flag_and_function[j].flag_fct)
-	    nb_read = nb_read - 2 +
+	    nb_read = nb_read - 1 +
 	      tab_flag_and_function[j].flag_fct(string, &i, &list_of_argument);
 	  else
 	    {
 	      my_putchar('%');
-	      nb_read = nb_read + 1;
+	      i = i + 1;
 	    }
   	}
       else
@@ -72,5 +72,5 @@ int		my_printf(char *string, ...)
       i = i + 1;
       nb_read = nb_read + 1;
     }
-  return (nb_read + 1);
+  return (nb_read);
 }
