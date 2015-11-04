@@ -5,10 +5,14 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:41:04 2015 Florian Vuillemot
-** Last update Wed Nov  4 18:24:56 2015 Florian Vuillemot
+** Last update Wed Nov  4 23:34:06 2015 Florian Vuillemot
 */
 
 #include "my_printf.h"
+
+
+/* les négatifs sur les flottants et les options de zero et espaces sur les enterq */
+
 
 static t_flag_and_fct	tab_flag_and_function[] = 
 {
@@ -70,26 +74,22 @@ int		my_printf(char *string, ...)
   int		j;
   int		nb_read;
 
-  i = 0;
+  i = -1;
   nb_read = 0;
   va_start(list_of_argument, string);
-  while (string[i])
-    {
-      if (string[i] == '%')
-  	{
-	  j = 0;
-	  while (cmp_flags(tab_flag_and_function[j].flag, &string[i + 1]))
-	    j = j + 1;
-	  if (tab_flag_and_function[j].flag_fct)
-	    nb_read = nb_read - 1 +
-	      tab_flag_and_function[j].flag_fct(string, &i, &list_of_argument);
-	  else
-	    my_printf_treate_pourcent(string, &i, &nb_read);
-  	}
-      else
-  	my_putchar(string[i]);
-      i = i + 1;
-      nb_read = nb_read + 1;
-    }
+  while (string[(i = i + 1)] && (nb_read = nb_read + 1))
+    if (string[i] == '%')
+      {
+	j = 0;
+	while (cmp_flags(tab_flag_and_function[j].flag, &string[i + 1]))
+	  j = j + 1;
+	if (tab_flag_and_function[j].flag_fct)
+	  nb_read = nb_read - 1
+	    + tab_flag_and_function[j].flag_fct(string, &i, &list_of_argument);
+	else
+	  my_printf_treate_pourcent(string, &i, &nb_read);
+      }
+    else
+      my_putchar(string[i]);
   return (nb_read);
 }

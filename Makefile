@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Wed Nov  4 18:25:20 2015 Florian Vuillemot
+## Last update Wed Nov  4 23:06:17 2015 Florian Vuillemot
 ##
 
 CC		=	gcc
@@ -28,6 +28,7 @@ SRCS		=	main.c					\
 			print_upper_short.c			\
 			space_and_zero.c			\
 			print_float.c				\
+			my_octal_len.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 

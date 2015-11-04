@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Wed Nov  4 17:53:25 2015 Florian Vuillemot
+** Last update Wed Nov  4 23:16:23 2015 Florian Vuillemot
 */
 
 #ifndef		MY_STRING_H_
@@ -26,9 +26,14 @@ int		error_my_printf();
 
 /* my_getnbr.c */
 int		my_getnbr(char *);
-void		put_space_and_zero(int, int);
+
+/* space and zero */
+int		put_space_and_zero(int, int, char);
 void		analyse_space_and_zero_in_string(int *, int *,
 						 char *, int *);
-int		space_or_zero_in_front_of_the_string(char *);
+char		get_char_to_print(char *);
+int		print_in_front_of(char *);
 
+/* my_octal_len */
+int		my_octal_len(char *);
 #endif /* !MY_STRING_H_ */

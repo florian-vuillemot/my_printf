@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:41:04 2015 Florian Vuillemot
-** Last update Wed Nov  4 18:22:34 2015 Florian Vuillemot
+** Last update Wed Nov  4 23:28:00 2015 Florian Vuillemot
 */
 
 #include "my_string.h"
@@ -15,47 +15,52 @@ void		analyse_space_and_zero_in_string(int *nb_z,
 						 char *str,
 						 int *cursor)
 {
-  int		zero;
-
-  zero = 0;
   if (!str || !space || !nb_z || !cursor)
     return ;
-  while (str[*cursor] && (str[*cursor] == '+' || str[*cursor] == '-'))
-    *cursor = *cursor + 1;
-  while (str[*cursor] && (str[*cursor] == '0' || str[*cursor] == ' '))
+  while (str[*cursor] &&
+	 (str[*cursor] == '+' || str[*cursor] == '-' ||
+	  str[*cursor] == ' ' || str[*cursor] == '0'))
     {
       if (str[*cursor] == ' ')
 	*space = 1;
-      if (str[*cursor] == '0')
-	zero = 1;
       *cursor = *cursor + 1;
     }
-  if (zero)
-    {
-      *nb_z = my_getnbr(&(str[*cursor]));
-      if (*nb_z < 1)
-	*nb_z = -1;
-      while (str[*cursor] && str[*cursor] >='0' && str[*cursor] <= '9')
-	*cursor = *cursor + 1;
-    }
+  *nb_z = my_getnbr(&(str[*cursor]));
+  while (str[*cursor] && str[*cursor] >='0' && str[*cursor] <= '9')
+    *cursor = *cursor + 1;
 }
 
-void		put_space_and_zero(int nb_zero, int space)
+int		put_space_and_zero(int nb_zero, int space, char char_to_print)
 {
+  int		nb_read;
+
+  if (nb_zero < 0)
+    return (0);
+  nb_read = nb_zero;
   if (space)
     my_putchar(' ');
-  while (nb_zero > 0)
+  while (nb_read > 0)
     {
-      my_putchar('0');
-      nb_zero = nb_zero - 1;
+      my_putchar(char_to_print);
+      nb_read = nb_read - 1;
     }
+  return (nb_zero);
 }
 
-int		space_or_zero_in_front_of_the_string(char *str)
+char		get_char_to_print(char *str)
 {
- /*  while (*c && *c == '+') */
-/*     c = c + 1; */
-/*   if (*c == '-') */
-/*     return (0); */
-/* q */  return (1);
+  while (*str && (*str == '+' || *str == ' '))
+    str = str + 1;
+  if (*str == '0')
+    return ('0');
+  return (' ');
+}
+
+int		print_in_front_of(char *str)
+{
+  while (*str && (*str == '+' || *str == ' ' || *str == '0'))
+    str = str + 1;
+  if (*str == '-')
+    return (0);
+  return (1);
 }
