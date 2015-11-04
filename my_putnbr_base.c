@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Oct  5 16:51:46 2015 Florian Vuillemot
-** Last update Wed Nov  4 11:18:27 2015 Florian Vuillemot
+** Last update Wed Nov  4 12:15:06 2015 Florian Vuillemot
 */
 
 #include	"my_put_number.h"
@@ -76,6 +76,5 @@ int		my_put_long_unsigned_nbr_base(unsigned long int nbr,
   nb_base = 0;
   while (base[nb_base])
     nb_base = nb_base + 1;
-  my_putstr("0x");
-  return (2 + unsigned_rec_putnbre(nbr, (unsigned long int)nb_base, base));
+  return (unsigned_rec_putnbre(nbr, (unsigned long int)nb_base, base));
 }

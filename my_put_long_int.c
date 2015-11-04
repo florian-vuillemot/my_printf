@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov  4 08:04:24 2015 Florian Vuillemot
-** Last update Wed Nov  4 08:53:05 2015 Florian Vuillemot
+** Last update Wed Nov  4 12:12:59 2015 Florian Vuillemot
 */
 
 #include	"my_put_number.h"
@@ -27,14 +27,17 @@ static int	my_put_positiv_long_int(long int nb)
 
 static int	my_put_negativ_long_int(long int nb)
 {
+  int		value;
+
+  value = 0;
   if (nb > -10)
     {
       my_putchar(nb * -1 + '0');
       return (1);
     }
-  my_put_negativ_long_int(nb / 10);
+  value = my_put_negativ_long_int(nb / 10);
   my_putchar((nb % 10) * -1 + '0');
-  return (1);
+  return (1 + value);
 }
 
 int		my_put_long_int(long int nb)
@@ -42,7 +45,7 @@ int		my_put_long_int(long int nb)
   if (nb < 0)
     {
       my_putchar('-');
-      return (1 + my_put_negativ_long_int(nb) + 1);
+      return (my_put_negativ_long_int(nb) + 1);
     }
   return (my_put_positiv_long_int(nb));
 }

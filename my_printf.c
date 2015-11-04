@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:41:04 2015 Florian Vuillemot
-** Last update Wed Nov  4 09:31:00 2015 Florian Vuillemot
+** Last update Wed Nov  4 12:16:06 2015 Florian Vuillemot
 */
 
 #include "my_printf.h"
@@ -21,9 +21,11 @@ static t_flag_and_fct	tab_flag_and_function[] =
 			{"ld", &print_long},
 			{"p", &print_pointer},
 			/* {"f", &print_float}, */
+			/* {"F", &print_float}, */
 			/* {"hd", &print_short}, */
-			/* {"x", &print_hexa}, */
-			/* {"o", &print_octal}, */
+			/* {"X", &print_upper_hexa}, */
+			{"x", &print_hexa},
+			{"o", &print_octal},
 			{0, 0}
 };
 
