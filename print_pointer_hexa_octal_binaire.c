@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov  4 09:30:33 2015 Florian Vuillemot
-** Last update Wed Nov  4 12:14:39 2015 Florian Vuillemot
+** Last update Wed Nov  4 13:33:02 2015 Florian Vuillemot
 */
 
 #include	"print_flags.h"
@@ -43,4 +43,15 @@ int			print_octal(char *str, int *cursor,
   while (str[*cursor] != 'o')
     *cursor = *cursor + 1;
   return (my_put_long_unsigned_nbr_base(nb, "01234567"));
+}
+
+int			print_binaire(char *str, int *cursor,
+				    va_list *list)
+{
+  unsigned long int	nb;
+
+  nb = (unsigned long int)va_arg(list, unsigned int);
+  while (str[*cursor] != 'b')
+    *cursor = *cursor + 1;
+  return (my_put_long_unsigned_nbr_base(nb, "01"));
 }

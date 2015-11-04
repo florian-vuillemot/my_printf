@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov  3 20:05:15 2015 Florian Vuillemot
-** Last update Wed Nov  4 08:16:50 2015 Florian Vuillemot
+** Last update Wed Nov  4 14:46:05 2015 Florian Vuillemot
 */
 
 #include "print_flags.h"
@@ -25,8 +25,9 @@ int		print_string(char *str, int *cursor, va_list *list)
 
   while (str[*cursor] != 's')
     *cursor = *cursor + 1;
-
   string_list = va_arg(list, char *);
+  if (!string_list)
+    return (error_my_printf());
   i = 0;
   while (*string_list)
     {

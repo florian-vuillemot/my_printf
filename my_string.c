@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Tue Nov  3 20:00:24 2015 Florian Vuillemot
+** Last update Wed Nov  4 14:43:06 2015 Florian Vuillemot
 */
 
 #include "my_string.h"

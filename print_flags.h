@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov  3 20:08:19 2015 Florian Vuillemot
-** Last update Wed Nov  4 11:54:17 2015 Florian Vuillemot
+** Last update Wed Nov  4 14:21:18 2015 Florian Vuillemot
 */
 
 #ifndef			PRINT_FLAGS_H_
@@ -26,9 +26,14 @@ int			print_integer(char *, int *, va_list *);
 int			print_unsigned(char *, int *, va_list *);
 int			print_long(char *, int *, va_list *);
 
-/* print_pointer_hexa_octalc */
+/* print_pointer_hexa_octac_binaire */
 int			print_pointer(char *, int *, va_list *);
 int			print_hexa(char *, int *, va_list *);
 int			print_octal(char *, int *, va_list *);
+int			print_binaire(char *, int *, va_list *);
+
+/* print_upper_short */
+int			print_upper_hexa(char *, int *, va_list *);
+int			print_short(char *, int *, va_list *);
 
 #endif /* PRINT_FLAGS_H_ */

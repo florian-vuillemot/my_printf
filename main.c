@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:33:19 2015 Florian Vuillemot
-** Last update Wed Nov  4 12:14:16 2015 Florian Vuillemot
+** Last update Wed Nov  4 14:33:12 2015 Florian Vuillemot
 */
 
 #include	"my_printf.h"
@@ -24,8 +24,8 @@ int		main()
   string1 = strdup("Flor");
   string2 = strdup("Florian");
   //  string[3] = 7;
-  i_printf = printf("%x\n %o\n",  -51000, -51000);// string1, string2);
-  i_my_printf = my_printf("%x\n %o\n", -51000, -51000); //, string1, string2);
+  i_printf = printf("%hd\n %hd\n",  51000, 5200);// string1, string2);
+  i_my_printf = my_printf("%s", NULL, 5200); //, string1, string2);
 
 
   printf("\n\n");

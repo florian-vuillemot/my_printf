@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Tue Nov  3 22:07:44 2015 Florian Vuillemot
+** Last update Wed Nov  4 14:52:28 2015 Florian Vuillemot
 */
 
 #ifndef		MY_STRING_H_
@@ -13,6 +13,8 @@
 
 # include	<unistd.h>
 # include	<stdlib.h>
+
+# define	ERROR_MSG "Error in my_printf\n"
 
 /* my_string.c */
 void		my_putchar(char);

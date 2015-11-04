@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov  4 08:04:24 2015 Florian Vuillemot
-** Last update Wed Nov  4 11:16:26 2015 Florian Vuillemot
+** Last update Wed Nov  4 13:48:17 2015 Florian Vuillemot
 */
 
 #ifndef		MY_PUT_NUMBER_H_
