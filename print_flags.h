@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov  3 20:08:19 2015 Florian Vuillemot
-** Last update Wed Nov  4 14:21:18 2015 Florian Vuillemot
+** Last update Wed Nov  4 18:27:34 2015 Florian Vuillemot
 */
 
 #ifndef			PRINT_FLAGS_H_
@@ -36,4 +36,6 @@ int			print_binaire(char *, int *, va_list *);
 int			print_upper_hexa(char *, int *, va_list *);
 int			print_short(char *, int *, va_list *);
 
+/* print_float */
+int			print_float(char *, int *, va_list *);
 #endif /* PRINT_FLAGS_H_ */

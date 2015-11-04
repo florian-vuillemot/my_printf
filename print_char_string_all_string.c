@@ -5,13 +5,18 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov  3 20:05:15 2015 Florian Vuillemot
-** Last update Wed Nov  4 14:46:05 2015 Florian Vuillemot
+** Last update Wed Nov  4 18:21:30 2015 Florian Vuillemot
 */
 
 #include "print_flags.h"
 
 int		print_char(char *str, int *cursor, va_list *list)
 {
+  int		nb_z;
+  int		space;
+
+  //  if ((back = space_or_zero_in_front_of_the_string(str)))
+    
   while (str[*cursor] != 'c')
     *cursor = *cursor + 1;
   my_putchar((char)va_arg(list, int));
@@ -57,6 +62,8 @@ int		print_string_and_all_char(char *str, int *cursor,
   while (str[*cursor] != 'S')
     *cursor = *cursor + 1;
   string_list = va_arg(list, char *);
+  if (!string_list)
+    return (error_my_printf());
   i = 0;
   while (*string_list)
     {

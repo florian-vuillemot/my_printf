@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:41:04 2015 Florian Vuillemot
-** Last update Wed Nov  4 14:25:58 2015 Florian Vuillemot
+** Last update Wed Nov  4 18:24:56 2015 Florian Vuillemot
 */
 
 #include "my_printf.h"
@@ -19,7 +19,7 @@ static t_flag_and_fct	tab_flag_and_function[] =
 			{"i", &print_integer},
 			{"u", &print_unsigned},
 			{"ld", &print_long},
-			/* {"f", &print_float}, */
+			{"f", &print_float},
 			/* {"F", &print_float}, */
 			{"p", &print_pointer},
 			{"x", &print_hexa},
@@ -32,16 +32,35 @@ static t_flag_and_fct	tab_flag_and_function[] =
 
 int		cmp_flags(char *ope, char *string)
 {
+  int		nb_zero;
+  int		space;
+  int		cursor;
+
+  nb_zero = -1;
+  space = 0;
+  cursor = 0;
   if (!ope || !string)
     return (0);
-  while (*ope && *string && *ope == *string)
+  analyse_space_and_zero_in_string(&nb_zero, &space, string, &cursor);
+  while (*ope && string[cursor] && *ope == string[cursor])
     {
       ope = ope + 1;
-      string = string + 1;
+      cursor = cursor + 1;
     }
   if (*ope)
     return (1);
   return (0);
+}
+
+void		my_printf_treate_pourcent(char *str, int *i, int *nb_read)
+{
+  my_putchar('%');
+  *i = *i + 1;
+  if (str[*i] != '%')
+    {
+      my_putchar(str[*i]);
+      *nb_read = *nb_read + 2;
+    }
 }
 
 int		my_printf(char *string, ...)
@@ -65,10 +84,7 @@ int		my_printf(char *string, ...)
 	    nb_read = nb_read - 1 +
 	      tab_flag_and_function[j].flag_fct(string, &i, &list_of_argument);
 	  else
-	    {
-	      my_putchar('%');
-	      i = i + 1;
-	    }
+	    my_printf_treate_pourcent(string, &i, &nb_read);
   	}
       else
   	my_putchar(string[i]);

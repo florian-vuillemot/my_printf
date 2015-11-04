@@ -1,0 +1,19 @@
+/*
+** float.c for floa in /home/vuille_f/PSU_2015_my_printf
+** 
+** Made by Florian Vuillemot
+** Login   <vuille_f@epitech.net>
+** 
+** Started on  Wed Nov  4 18:02:09 2015 Florian Vuillemot
+** Last update Wed Nov  4 18:04:45 2015 Florian Vuillemot
+*/
+
+int		print_float(char *, int *, va_list list)
+{
+  float		nb;
+  int		natural;
+
+  my_putnbr((natural = (int)nb));
+  my_putchar('.');
+  
+}

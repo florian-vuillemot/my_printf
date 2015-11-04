@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Wed Nov  4 14:43:06 2015 Florian Vuillemot
+** Last update Wed Nov  4 15:14:06 2015 Florian Vuillemot
 */
 
 #include "my_string.h"
@@ -54,4 +54,10 @@ char		*my_strdup(char *str)
       result = result + 1;
     }
   return (result - length);
+}
+
+int		error_my_printf()
+{
+  write(2, ERROR_MSG, sizeof(ERROR_MSG));
+  return (0);
 }
