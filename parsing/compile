@@ -1,0 +1,3 @@
+gcc ../get_elem_to_print/*.c *.c ../list_va_arg/*.c ../string/*.c ../flag/*.c -I../flag/ -I../string/ -I../list_va_arg/ -I../get_elem_to_print/
+gcc ../get_elem_to_print/*.c *.c ../list_va_arg/*.c ../string/*.c ../flag/*.c -I../flag/ -I../string/ -I../list_va_arg/ -I../get_elem_to_print/
+gcc ../get_elem_to_print/*.c *.c ../list_va_arg/*.c ../string/*.c ../flag/*.c -I../flag/ -I../string/ -I../list_va_arg/ -I../get_elem_to_print/

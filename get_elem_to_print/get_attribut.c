@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Mon Nov  9 17:12:54 2015 Florian Vuillemot
+** Last update Mon Nov  9 19:18:30 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -26,7 +26,7 @@ t_string		*get_flag_character(t_string *string,
       if (flag->flag_and_fct[nb_fg].flag[0] == 'i' ||
 	  flag->flag_and_fct[nb_fg].flag[0] == 'u' ||
 	  flag->flag_and_fct[nb_fg].flag[0] == 'd')
-	return (get_flag_integer(string, cursor, nb_fg, list));
+	return (get_flag_integer(string, &cursor, nb_fg, list));
       //  return (get_flag_integer_and_convert(string, cursor, nb_fg, list));
     }
   //  return (get_flag_string(string, cursor, nb_fg, list));
@@ -34,7 +34,7 @@ t_string		*get_flag_character(t_string *string,
 }
 
 t_string		*get_flag_integer(t_string *string,
-					  unsigned int cursor,
+					  unsigned int *cursor,
 					  int type_flag,
 					  t_list_va_arg *list)
 {
@@ -47,24 +47,27 @@ t_string		*get_flag_integer(t_string *string,
   node = list->cursor;
   get_arg(list);
   minus = 0;
-  while (string->string[cursor] == '#' || string->string[cursor] == ' ')
-    remove_elem_to_string(string, cursor);
-  if (string->string[cursor] == '+' && node->type == INTEGER_POS)
+  while (string->string[*cursor] == '#' || string->string[*cursor] == ' ')
+    string = remove_elem_to_string(string, *cursor);
+  if (string->string[*cursor] == '+')
     {
-      remove_elem_to_string(string, cursor);
-      if ((string = add_elem_to_string(string, cursor, '+')) == NULL)
-	return (NULL);
+      if (node->type == INTEGER_POS)
+	*cursor = *cursor + 1;
+      else
+	string = remove_elem_to_string(string, *cursor);
+
     }
-  if (string->string[cursor] == '-')
+  if (string->string[*cursor] == '-')
     {
       minus = 1;
-      remove_elem_to_string(string, cursor);
+      string = remove_elem_to_string(string, *cursor);
     }
-  width = get_field_width(string, cursor);
-  get_precision(string, cursor, node);
+  width = get_field_width(string, *cursor);
+  get_precision(string, *cursor, node);
+  string = remove_elem_to_string(string, *cursor);
   if (minus)
-    return (get_width_precision_string_minus(string, width, cursor, node));
-  return (get_width_precision_string(string, width, cursor, node));
+    return (get_width_precision_string_minus(string, width, *cursor, node));
+  return (get_width_precision_string(string, width, *cursor, node));
 }
 
 t_string		*get_width_precision_string(t_string *string,
