@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:25:12 2015 Florian Vuillemot
-** Last update Mon Nov  9 19:19:02 2015 Florian Vuillemot
+** Last update Tue Nov 10 00:47:20 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -32,7 +32,7 @@ void			fct(char *str,
   arg = init_list_va_arg(flag, string->string, &list);
   string = get_elem_to_print(string, flag, arg);
 
-  print_list(arg);
+  //  print_list(arg);
   print_string(string);
   
   free_list_va_arg(arg);
@@ -46,7 +46,7 @@ int			main(int ac, char **av)
   char			*str; 
   
   flag = init_flag_and_fct();
-  str = my_strdup("%*5$ ###00000000%+++    ---- -  -- +++d 23 ---  %- ++00 ### 43d %2.* % % \n");
+  str = my_strdup("###00000000 %--####5d 23 ---  %43d %2.* % % \n");
   printf(str, 10,2,3,3,5,12,32,NULL);
   string = parse(str, flag);
   fct(str, flag, string, "10","2","3","3","5","12","32");

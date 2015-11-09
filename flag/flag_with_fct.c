@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:58:37 2015 Florian Vuillemot
-** Last update Mon Nov  9 16:06:08 2015 Florian Vuillemot
+** Last update Mon Nov  9 23:33:10 2015 Florian Vuillemot
 */
 
 #include		"flag_with_fct.h"
@@ -17,7 +17,7 @@ char			*fc(va_list *d, int *type)
 
   if (!d || !*d)
     return (NULL);
-  *type = CHARACTER;
+  *type = INTEGER_POS;
   if ((res = va_arg(d, char *)) == NULL)
     return (my_strdup("(null)"));
   return (my_strdup(res));

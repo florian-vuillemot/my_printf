@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:22:01 2015 Florian Vuillemot
-** Last update Mon Nov  9 16:05:35 2015 Florian Vuillemot
+** Last update Tue Nov 10 00:16:20 2015 Florian Vuillemot
 */
 
 #include			"node_va_arg.h"
@@ -32,6 +32,7 @@ t_node_va_arg			*init_node_va_arg(t_flag *flag,
   res->next = NULL;
   res->index = index;
   res->type = type;
+  res->complete_width = ' ';
   return (res);
 }
 

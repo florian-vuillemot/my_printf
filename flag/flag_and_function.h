@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:45:51 2015 Florian Vuillemot
-** Last update Sun Nov  8 20:27:20 2015 Florian Vuillemot
+** Last update Tue Nov 10 00:23:39 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_AND_FCT_H_

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:14:09 2015 Florian Vuillemot
-** Last update Mon Nov  9 16:02:13 2015 Florian Vuillemot
+** Last update Tue Nov 10 00:26:07 2015 Florian Vuillemot
 */
 
 #ifndef			NODE_VA_ARG_H_
@@ -19,6 +19,7 @@ typedef struct		s_node_va_arg
   unsigned int		index;
   char			*arg;
   int			type;
+  char			complete_width;
   struct s_node_va_arg	*next;
 }			t_node_va_arg;
 

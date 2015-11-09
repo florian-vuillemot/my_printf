@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:55:41 2015 Florian Vuillemot
-** Last update Mon Nov  9 16:05:58 2015 Florian Vuillemot
+** Last update Mon Nov  9 23:37:06 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_WITH_FCT_H_
@@ -24,6 +24,7 @@
 
 # define		CHARACTER 0
 # define		INTEGER_POS 1
+# define		INTEGER_POS_WITH_PLUS 2
 
 typedef struct		s_flag_with_fct
 {
