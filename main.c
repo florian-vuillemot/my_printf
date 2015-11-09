@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  2 15:33:19 2015 Florian Vuillemot
-** Last update Wed Nov  4 23:27:40 2015 Florian Vuillemot
+** Last update Sat Nov  7 14:21:45 2015 Florian Vuillemot
 */
 
 #include	"my_printf.h"
@@ -22,11 +22,11 @@ int		main()
   i_te = 0.0;
   string = strdup("coucou");
   //  string[3] = 127;
-  string1 = strdup("coucou");
+  string1 = strdup("doucou");
   string2 = strdup("Florian");
   //  string[3] = 7;
-  i_printf = printf("%20ck\n",*string1);// string1, string2);
-  i_my_printf = my_printf("%   00++   0020ck\n", *string); //, string1, string2);
+  i_printf = printf("%.4Xd\n",20,23,string,"kk",10,10,*string1);// string1, string2);
+  i_my_printf = my_printf("%*d ## 00-030dk\n", 100,string); //, string1, string2);
 
 
   printf("\n\n");
