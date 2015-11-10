@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Tue Nov 10 11:29:48 2015 Florian Vuillemot
+** Last update Tue Nov 10 15:22:53 2015 Florian Vuillemot
 */
 
 #ifndef			GET_ELEM_TO_PRINT_H_
@@ -27,8 +27,16 @@ t_string		*get_elem_to_print(t_string *, t_flag *,
 /* get_attribut */
 t_string		*get_flag_character(t_string *, unsigned int,
 					    t_list_va_arg *, t_flag *);
+t_string		*clean_string_and_get_data(t_string *,
+						   unsigned int *,
+						   unsigned int *,
+						   t_node_va_arg *);
+
+/* get_flag_integer */
 t_string		*get_flag_integer(t_string *, unsigned int *,
 					  int, t_list_va_arg *);
+
+/* get_width_precision */
 t_string		*get_width_precision_string_minus(t_string *,
 							  t_width_prec *,
 							  unsigned int,
