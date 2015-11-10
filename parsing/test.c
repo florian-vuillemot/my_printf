@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:25:12 2015 Florian Vuillemot
-** Last update Tue Nov 10 12:16:54 2015 Florian Vuillemot
+** Last update Tue Nov 10 14:47:28 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -46,7 +46,7 @@ int			main(int ac, char **av)
   char			*str; 
   
   flag = init_flag_and_fct();
-  str = my_strdup("###00000000 % ##-+0##10.---10d 23 ---  %- --##   00d%2.* %  5d% \n");
+  str = my_strdup("###00000000 % 10-d 23 ---  %- --##   00d%2.* %  5d% \n");
   printf(str, 10,2,3,3,5,12,32,NULL);
   string = parse(str, flag);
   fct(str, flag, string, "10","2","3","3","5","12","32");
