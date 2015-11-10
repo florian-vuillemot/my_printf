@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:55:41 2015 Florian Vuillemot
-** Last update Mon Nov  9 23:37:06 2015 Florian Vuillemot
+** Last update Tue Nov 10 17:17:02 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_WITH_FCT_H_
@@ -15,6 +15,7 @@
 # include		<stdlib.h>
 # include		"my_string.h"
 # include		"struct_string.h"
+# include		"flag_function.h"
 
 # define		CHAR_REMOVE_OTHERS "-+0"
 # define		NB_FCT 2
