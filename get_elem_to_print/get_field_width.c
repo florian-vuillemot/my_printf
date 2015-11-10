@@ -5,25 +5,23 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 15:02:50 2015 Florian Vuillemot
-** Last update Tue Nov 10 00:42:32 2015 Florian Vuillemot
+** Last update Tue Nov 10 12:41:31 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
-unsigned int		get_field_width(t_string *string, unsigned int curs)
+unsigned int		get_field_width(t_string *string, unsigned int curs,
+					t_node_va_arg *node)
 {
   int			nb;
-  int			place_curs;
+  unsigned int		precision;
 
   if (!string || !string->string)
     return (0);
-  place_curs = curs;
   nb = my_getnbr(string->string + curs);
   while (string->string[curs] <= '9' && string->string[curs] >= '0')
     string = remove_elem_to_string(string, curs);
-  if (nb < 0 && curs != place_curs)
-    return (1 << (sizeof(int) * 8 - 1));
-  if (nb < 0)
+  if (nb <= 0)
     return (0);
   return ((unsigned int)nb);
 }
@@ -31,22 +29,23 @@ unsigned int		get_field_width(t_string *string, unsigned int curs)
 unsigned int		get_precision(t_string *string, unsigned int cur,
 				      t_node_va_arg *node)
 {
-  unsigned int		precision;
   unsigned int		len;
+  unsigned int		precision;
+  int			get_nb;
 
-  if (!string || !string->string)
-    return (0);
-  if (string->string[cur] != '.')
+  if (!string || !string->string || string->string[cur] != '.')
     return (0);
   string = remove_elem_to_string(string, cur);
-  precision = get_field_width(string, cur);
+  get_nb = my_getnbr(string->string + cur);
   len = my_strlen(node->arg);
-  if (len > precision)
-    node->arg[len] = '\0';
-  while (len < precision)
-    {
-      string = add_elem_to_string(string, cur, '0');
-      precision = precision - 1;
-    }
+  while (string->string[cur] <= '9' && string->string[cur] >= '0')
+    string = remove_elem_to_string(string, cur);
+  if (get_nb <= 0)
+    return (0);
+  precision = (unsigned int)get_nb;
+  if (len < precision)
+    precision = precision - len;
+  else
+    precision = 0;
   return (precision);
 }

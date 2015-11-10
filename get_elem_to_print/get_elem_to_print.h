@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Mon Nov  9 19:18:17 2015 Florian Vuillemot
+** Last update Tue Nov 10 11:29:48 2015 Florian Vuillemot
 */
 
 #ifndef			GET_ELEM_TO_PRINT_H_
@@ -13,6 +13,12 @@
 
 # include		"struct_string.h"
 # include		"list_va_arg.h"
+
+typedef struct		s_width_prec
+{
+  unsigned int		width;
+  unsigned int		precision;
+}			t_width_prec;
 
 /* get_elem_to_print */
 t_string		*get_elem_to_print(t_string *, t_flag *,
@@ -24,16 +30,17 @@ t_string		*get_flag_character(t_string *, unsigned int,
 t_string		*get_flag_integer(t_string *, unsigned int *,
 					  int, t_list_va_arg *);
 t_string		*get_width_precision_string_minus(t_string *,
-							  unsigned int,
+							  t_width_prec *,
 							  unsigned int,
 							  t_node_va_arg *);
 t_string		*get_width_precision_string(t_string *,
-							  unsigned int,
-							  unsigned int,
-							  t_node_va_arg *);
+						    t_width_prec *,
+						    unsigned int,
+						    t_node_va_arg *);
 
 /* get_field_width */
-unsigned int		get_field_width(t_string *, unsigned int);
+unsigned int		get_field_width(t_string *, unsigned int,
+					t_node_va_arg *);
 unsigned int		get_precision(t_string *, unsigned int,
 				       t_node_va_arg *);
 
