@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Thu Nov 12 07:09:15 2015 Florian Vuillemot
+## Last update Thu Nov 12 07:15:53 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -18,7 +18,7 @@ LDFLAGS		=	-I./flag/						\
 			-I./string/						\
 
 
-NAME		=	my_printf
+NAME		=	libmy.a
 
 CFLAGS		=	-Wall -Wextra -W #-Werror
 
@@ -60,6 +60,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			string/my_string.c					\
 			string/read_string.c					\
 			string/write_on_string.c				\
+			my_printf.c
 #			parsing/test.c						\
 
 
@@ -70,7 +71,7 @@ RM		=	rm -f
 all: 			$(NAME)
 
 $(NAME):		$(OBJS)
-			$(CC) -c $(SRC)
+#			$(CC) -c $(SRC)
 			ar rc $(NAME) $(OBJS)
 			ranlib $(NAME)
 #			$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
