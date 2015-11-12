@@ -5,47 +5,79 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Thu Nov  5 15:21:27 2015 Florian Vuillemot
+## Last update Thu Nov 12 06:34:36 2015 Florian Vuillemot
 ##
 
-CC		=	gcc
+CC		=	gcc $(LDFLAGS)
+
+LDFLAGS		=	-I./flag/						\
+			-I./flag_fct/						\
+			-I./get_elem_to_print/					\
+			-I./list_va_arg/					\
+			-I./parsing/						\
+			-I./string/						\
+
 
 NAME		=	my_printf
 
 CFLAGS		=	-Wall -Wextra -W #-Werror
 
-LDFLAGS		=
+SRCS		= 	flag/cmp_string_and_flag.c				\
+			flag_fct/convert_binaire.c				\
+			flag_fct/convert_char_octal.c				\
+			flag_fct/convert_hexa.c					\
+			flag_fct/convert_octal.c				\
+			flag_fct/flag_function.c				\
+			flag_fct/flag_hexa_octal_binaire.c			\
+			flag_fct/flag_integer_long_short.c			\
+			flag_fct/flag_j_z.c					\
+			flag_fct/flag_p.c					\
+			flag_fct/flag_string.c					\
+			flag_fct/flag_unsigned_long_short.c			\
+			flag/flag_and_fct.c					\
+			flag/flag_with_fct.c					\
+			flag/use_flag.c						\
+			get_elem_to_print/get_attribut.c			\
+			get_elem_to_print/get_elem_to_print.c			\
+			get_elem_to_print/get_field_width.c			\
+			get_elem_to_print/get_flag_and_convert.c		\
+			get_elem_to_print/get_flag_integer.c			\
+			get_elem_to_print/get_flag_string.c			\
+			get_elem_to_print/get_width_precision.c			\
+			get_elem_to_print/get_width_precision_convert.c		\
+			get_elem_to_print/get_width_precision_string.c		\
+			list_va_arg/get_elem_list_va_arg.c			\
+			list_va_arg/list_va_arg.c				\
+			list_va_arg/node_va_arg.c				\
+			parsing/operator_parse.c				\
+			parsing/pars.c						\
+			parsing/test.c						\
+			string/init_struct_string.c				\
+			string/mouv_elem_string.c				\
+			string/my_comp_string.c					\
+			string/my_getnbr.c					\
+			string/my_put_llu_nbr.c					\
+			string/my_put_nbr.c					\
+			string/my_string.c					\
+			string/read_string.c					\
+			string/write_on_string.c				\
 
-SRCS		=	main.c					\
-			my_printf.c				\
-			my_putnbr_base.c			\
-			my_getnbr.c			\
-			print_char_string_all_string.c		\
-			my_string.c				\
-			print_integer_short_long.c		\
-			my_put_long_int.c			\
-			print_pointer_hexa_octal_binaire.c	\
-			print_upper_short.c			\
-			space_and_zero.c			\
-			print_float.c				\
-			my_octal_len.c				\
-			percent_start.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 
 RM		=	rm -f
 
-all: $(NAME)
+all: 			$(NAME)
 
-$(NAME):	$(OBJS)
-		$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+$(NAME):		$(OBJS)
+			$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
-	$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re: fclean all
+re: 		fclean all
 
 .PHONY: all clean fclean re
