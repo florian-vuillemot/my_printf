@@ -1,7 +1,0 @@
-#include "my.h"
-int main()
-{
-  my_printf("%+05p\n", "k");
-  printf("%+05p\n", "k");
-  return (0);
-}

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 14:31:11 2015 Florian Vuillemot
+** Last update Thu Nov 12 18:48:16 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -89,7 +89,7 @@ static void		get_precision_convert_minus(t_node_va_arg *nd,
 {
   if (!nd || !w_p || !prec)
     return ;
-  *prec = w_p->precision;
+  *prec = w_p->width;
   if (nd->type > 0)
     {
       if (nd->type != PRINT_OCTAL)
@@ -122,7 +122,7 @@ t_string		*get_width_prec_pnt_convert_minus(t_string *string,
   string = add_elem_on_get_width_precision(string, &cur, '0', &prec);
   string = add_elem_on_get_width_precision(string, &cur, 'x', &prec);
   len = len + 2;
-  while (prec)
+  while (prec > len + w_p->width)
     string = add_elem_on_get_width_precision(string, &cur, '0', &prec);
   if ((string = insert_string(string, nd->arg, cur)) == NULL)
     return (NULL);
