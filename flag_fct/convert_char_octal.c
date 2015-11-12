@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 20:39:21 2015 Florian Vuillemot
-** Last update Wed Nov 11 08:45:01 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:36:57 2015 Florian Vuillemot
 */
 
 #include "my_string.h"
@@ -23,7 +23,7 @@ static char		char_to_octal(char convert, int curs)
   end = curs + 3;
   res = 0;
   pow = 1;
-  while (curs < end && curs < sizeof(char) * 8)
+  while (curs < end && curs < (int)sizeof(char) * 8)
     {
       if (convert & (one << curs))
 	res = pow + res;
@@ -46,7 +46,7 @@ t_string		*convert_char_octal(t_string *string, char convert,
   string = add_elem_to_string(string, cursor, '\\');
   cursor = cursor + 1;
   curs = 0;
-  while (curs < sizeof(char) * 8)
+  while (curs < (int)sizeof(char) * 8)
     {
       string =
 	add_elem_to_string(string, cursor, char_to_octal(convert, curs));

@@ -5,13 +5,12 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 15:02:50 2015 Florian Vuillemot
-** Last update Thu Nov 12 01:00:04 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:47:41 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
-unsigned int		get_field_width(t_string *string, unsigned int curs,
-					t_node_va_arg *node)
+unsigned int		get_field_width(t_string *string, unsigned int curs)
 {
   int			nb;
 
@@ -50,8 +49,7 @@ unsigned int		get_precision(t_string *string, unsigned int cur,
 }
 
 unsigned int		get_string_precision(t_string *string,
-					     unsigned int cur,
-					     t_node_va_arg *node)
+					     unsigned int cur)
 {
   int			get_nb;
 

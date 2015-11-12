@@ -5,14 +5,14 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 17:40:06 2015 Florian Vuillemot
-** Last update Tue Nov 10 20:13:12 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:36:20 2015 Florian Vuillemot
 */
 
 #include		"my_string.h"
 
 static int		get_size(unsigned long int nb)
 {
-  int			curs;
+  unsigned int		curs;
   int			size;
   unsigned long int	one;
 

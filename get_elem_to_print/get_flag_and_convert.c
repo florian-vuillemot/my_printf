@@ -5,14 +5,13 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Wed Nov 11 23:43:53 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:52:05 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
 t_string		*get_flag_integer_and_convert(t_string *string,
 						      unsigned int *cursor,
-						      int type_flag,
 						      t_list_va_arg *list)
 {
   unsigned int	       	minus;
@@ -24,7 +23,7 @@ t_string		*get_flag_integer_and_convert(t_string *string,
   node = list->cursor;
   get_arg(list);
   string = clean_string_data_convert(string, cursor, &minus, node);
-  wi_prec.width = get_field_width(string, *cursor, node);
+  wi_prec.width = get_field_width(string, *cursor);
   wi_prec.precision = get_precision(string, *cursor, node);
  if (minus == 3)
     {

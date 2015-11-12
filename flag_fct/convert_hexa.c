@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 17:40:06 2015 Florian Vuillemot
-** Last update Tue Nov 10 20:35:02 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:37:24 2015 Florian Vuillemot
 */
 
 #include		"my_string.h"
@@ -19,7 +19,7 @@ static int		get_size(unsigned long int nb)
   curs = 0;
   size = 0;
   one = 1;
-  while (curs < (sizeof(long int) * 8))
+  while (curs < (int)(sizeof(long int) * 8))
     {
       if (nb & (one << curs))
 	size = curs;

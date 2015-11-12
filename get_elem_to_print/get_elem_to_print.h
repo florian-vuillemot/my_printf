@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Thu Nov 12 00:59:39 2015 Florian Vuillemot
+** Last update Thu Nov 12 07:00:22 2015 Florian Vuillemot
 */
 
 #ifndef			GET_ELEM_TO_PRINT_H_
@@ -42,12 +42,12 @@ t_string		*clean_string_data_convert(t_string *,
 
 /* get_flag_integer */
 t_string		*get_flag_integer(t_string *, unsigned int *,
-					  int, t_list_va_arg *);
+					  t_list_va_arg *);
 
 /* get_flag_integer_convert */
 t_string		*get_flag_integer_and_convert(t_string *,
 						      unsigned int *,
-						      int, t_list_va_arg *);
+						      t_list_va_arg *);
 
 /* get_width_precision */
 t_string		*get_width_precision_string_minus(t_string *,
@@ -70,16 +70,14 @@ t_string		*get_width_prec_str_convert(t_string *,
 						    t_node_va_arg *);
 
 /* get_field_width */
-unsigned int		get_field_width(t_string *, unsigned int,
-					t_node_va_arg *);
+unsigned int		get_field_width(t_string *, unsigned int);
 unsigned int		get_precision(t_string *, unsigned int,
-				       t_node_va_arg *);
-unsigned int		get_string_precision(t_string *, unsigned int,
-					     t_node_va_arg *);
+				      t_node_va_arg *);
+unsigned int		get_string_precision(t_string *, unsigned int);
 
 /* get_flag_string */
 t_string		*get_with_flag_string(t_string *, unsigned int *,
-					      int, t_list_va_arg *);
+					      t_list_va_arg *);
 
 /* get_width_precision_string */
 t_string		*get_width_prec_string(t_string *,

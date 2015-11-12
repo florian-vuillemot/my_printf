@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Thu Nov 12 06:34:36 2015 Florian Vuillemot
+## Last update Thu Nov 12 07:09:15 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -51,7 +51,6 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			list_va_arg/node_va_arg.c				\
 			parsing/operator_parse.c				\
 			parsing/pars.c						\
-			parsing/test.c						\
 			string/init_struct_string.c				\
 			string/mouv_elem_string.c				\
 			string/my_comp_string.c					\
@@ -61,6 +60,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			string/my_string.c					\
 			string/read_string.c					\
 			string/write_on_string.c				\
+#			parsing/test.c						\
 
 
 OBJS		=	$(SRCS:.c=.o)
@@ -70,7 +70,10 @@ RM		=	rm -f
 all: 			$(NAME)
 
 $(NAME):		$(OBJS)
-			$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+			$(CC) -c $(SRC)
+			ar rc $(NAME) $(OBJS)
+			ranlib $(NAME)
+#			$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
 			$(RM) $(OBJS)

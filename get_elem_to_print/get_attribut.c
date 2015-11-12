@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 00:52:14 2015 Florian Vuillemot
+** Last update Thu Nov 12 07:00:56 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -27,10 +27,10 @@ t_string		*get_flag_character(t_string *string,
 	  flag->flag_and_fct[nb_fg].flag[0] == 'X' ||
 	  flag->flag_and_fct[nb_fg].flag[0] == 'p' || /* ATT */
 	  flag->flag_and_fct[nb_fg].flag[0] == 'b')
-	return (get_flag_integer_and_convert(string, &cursor, nb_fg, list));
-      return (get_flag_integer(string, &cursor, nb_fg, list));
+	return (get_flag_integer_and_convert(string, &cursor, list));
+      return (get_flag_integer(string, &cursor, list));
     }
-  return (get_with_flag_string(string, &cursor, nb_fg, list));
+  return (get_with_flag_string(string, &cursor, list));
 }
 
 t_string		*clean_string_and_get_data(t_string *string,

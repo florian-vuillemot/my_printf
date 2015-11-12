@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:48:56 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:54:04 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -24,7 +24,6 @@ static t_string		*add_complete_width(t_string *string,
 
 t_string		*get_flag_integer(t_string *string,
 					  unsigned int *cursor,
-					  int type_flag,
 					  t_list_va_arg *list)
 {
   unsigned int	       	minus;
@@ -36,7 +35,7 @@ t_string		*get_flag_integer(t_string *string,
   node = list->cursor;
   get_arg(list);
   string = clean_string_and_get_data(string, cursor, &minus, node);
-  wi_prec.width = get_field_width(string, *cursor, node);
+  wi_prec.width = get_field_width(string, *cursor);
   if (minus == 3)
     {
       if ((string = add_complete_width(string, cursor, &wi_prec, node))

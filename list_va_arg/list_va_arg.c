@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Mon Nov  9 09:54:34 2015 Florian Vuillemot
+** Last update Thu Nov 12 07:02:48 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -56,12 +56,12 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
 
 
 /*
-
-
-
-ATTENTION
-
-
+**
+**
+**
+** ATTENTION
+**
+**
  */
 t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
 						t_flag *flag, char *str,
@@ -81,7 +81,7 @@ t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
 	  while (str[i] <= '9' && str[i] >= '0')
 	    i = i + 1;
 	  if (str[i] == '$')
-	    max = (unsigned int)MAX(my_getnbr(str + 1), max);
+	    max = (unsigned int)MAX(my_getnbr(str + 1), (int)max);
 	}
       str = str + 1;
     }

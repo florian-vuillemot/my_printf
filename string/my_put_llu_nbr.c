@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 15:44:13 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:17:13 2015 Florian Vuillemot
+** Last update Thu Nov 12 06:43:22 2015 Florian Vuillemot
 */
 
 #include		"my_string.h"
@@ -14,9 +14,7 @@ static unsigned int		get_size_nb(unsigned long long int nb)
 {
   unsigned int			res;
 
-  if (nb < 0)
-    res = 2;
-  else if (nb > 0)
+  if (nb > 0)
     res = 1;
   else
     return (2);
