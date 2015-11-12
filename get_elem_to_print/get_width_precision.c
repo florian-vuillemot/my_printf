@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:48:17 2015 Florian Vuillemot
+** Last update Thu Nov 12 17:37:06 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -20,24 +20,22 @@ t_string		*get_width_precision_string(t_string *str,
   if (!str || !str->string || !node || !node->arg || !w_and_prec)
     return (NULL);
   len = my_strlen(node->arg);
-  if (node->type == INTEGER_POS_WITH_PLUS)
-    len = len + 1;
-  while (w_and_prec->width > w_and_prec->precision + len)
+  if (w_and_prec->precision > 0)
+    node->complete_width = ' ';
+  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width != '0')
+    len++;
+  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width == '0')
     {
-      str = add_elem_to_string(str, cursor, node->complete_width);
-      w_and_prec->width = w_and_prec->width - 1;
-      cursor = cursor + 1;
+      if (w_and_prec->width)
+	w_and_prec->width = w_and_prec->width - 1;
+      str = add_elem_to_string(str, cursor++, '+');
     }
-  if (node->type == INTEGER_POS_WITH_PLUS && (len = len - 1))
-    {
-      str = add_elem_to_string(str, cursor, '+');
-      cursor = cursor + 1;
-    }
-  while (w_and_prec->precision && (str = add_elem_to_string(str, cursor, '0')))
-    {
-      w_and_prec->precision = w_and_prec->precision - 1;
-      cursor = cursor + 1;
-    }
+  while (w_and_prec->width-- > w_and_prec->precision + len)
+    str = add_elem_to_string(str, cursor++, node->complete_width);
+  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width != '0')
+    str = add_elem_to_string(str, cursor++, '+');
+  while (w_and_prec->precision--)
+    str = add_elem_to_string(str, cursor++, '0');
   return (insert_string(str, node->arg, cursor));
 }
 

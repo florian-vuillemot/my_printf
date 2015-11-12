@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:25:12 2015 Florian Vuillemot
-** Last update Thu Nov 12 01:54:52 2015 Florian Vuillemot
+** Last update Thu Nov 12 10:13:01 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -20,7 +20,6 @@ void			print_list(t_list_va_arg *arg)
       printf("%s\n", get_arg(arg));
     }
 }
-
 
 void			fct(char *str,
 			    t_flag *flag, t_string *string, ...)

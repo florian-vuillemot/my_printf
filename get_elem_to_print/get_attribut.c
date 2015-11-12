@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 07:00:56 2015 Florian Vuillemot
+** Last update Thu Nov 12 14:38:00 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -25,11 +25,12 @@ t_string		*get_flag_character(t_string *string,
       if (flag->flag_and_fct[nb_fg].flag[0] == 'o' ||
 	  flag->flag_and_fct[nb_fg].flag[0] == 'x' ||
 	  flag->flag_and_fct[nb_fg].flag[0] == 'X' ||
-	  flag->flag_and_fct[nb_fg].flag[0] == 'p' || /* ATT */
 	  flag->flag_and_fct[nb_fg].flag[0] == 'b')
 	return (get_flag_integer_and_convert(string, &cursor, list));
       return (get_flag_integer(string, &cursor, list));
     }
+  if (flag->flag_and_fct[nb_fg].flag[0] == 'p')
+    return (get_flag_pnt(string, &cursor, list));
   return (get_with_flag_string(string, &cursor, list));
 }
 
@@ -133,4 +134,3 @@ t_string		*clean_string_data_convert(t_string *string,
     string = remove_elem_to_string(string, *cursor);
   return (string);
 }
- 

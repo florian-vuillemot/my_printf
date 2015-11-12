@@ -5,12 +5,13 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 06:54:04 2015 Florian Vuillemot
+** Last update Thu Nov 12 14:43:29 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
-static t_string		*add_complete_width(t_string *string,
+//static
+t_string		*add_complete_width(t_string *string,
 					   unsigned int *cursor,
 					    t_width_prec *wi_prec,
 					    t_node_va_arg *node)
@@ -36,7 +37,7 @@ t_string		*get_flag_integer(t_string *string,
   get_arg(list);
   string = clean_string_and_get_data(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor);
-  if (minus == 3)
+  if (minus > 1)
     {
       if ((string = add_complete_width(string, cursor, &wi_prec, node))
 	  == NULL)

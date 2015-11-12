@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Thu Nov 12 07:02:48 2015 Florian Vuillemot
+** Last update Thu Nov 12 09:55:30 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -71,7 +71,7 @@ t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
   int			i;
 
   if (!arg || !arg->last_elem || !flag || !str || !list)
-    return (NULL);
+    return (free_list_va_arg(arg));
   max = 0;
   while (*str)
     {

@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Thu Nov 12 07:15:53 2015 Florian Vuillemot
+## Last update Thu Nov 12 16:51:26 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -46,6 +46,8 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			get_elem_to_print/get_width_precision.c			\
 			get_elem_to_print/get_width_precision_convert.c		\
 			get_elem_to_print/get_width_precision_string.c		\
+			get_elem_to_print/get_width_precision_pnt.c		\
+			get_elem_to_print/get_flag_pnt.c			\
 			list_va_arg/get_elem_list_va_arg.c			\
 			list_va_arg/list_va_arg.c				\
 			list_va_arg/node_va_arg.c				\
@@ -60,8 +62,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			string/my_string.c					\
 			string/read_string.c					\
 			string/write_on_string.c				\
-			my_printf.c
-#			parsing/test.c						\
+			my_printf.c						\
 
 
 OBJS		=	$(SRCS:.c=.o)
@@ -71,10 +72,8 @@ RM		=	rm -f
 all: 			$(NAME)
 
 $(NAME):		$(OBJS)
-#			$(CC) -c $(SRC)
 			ar rc $(NAME) $(OBJS)
 			ranlib $(NAME)
-#			$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
 			$(RM) $(OBJS)
