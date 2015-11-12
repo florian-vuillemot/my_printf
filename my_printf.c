@@ -5,13 +5,15 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:25:12 2015 Florian Vuillemot
-** Last update Thu Nov 12 07:28:42 2015 Florian Vuillemot
+** Last update Thu Nov 12 08:58:15 2015 Florian Vuillemot
 */
 
-#include		<stdarg.h>
-#include		"pars.h"
-#include		"list_va_arg.h"
-#include		"get_elem_to_print.h"
+#include		"my.h"
+
+/* #include		<stdarg.h> */
+/* #include		"pars.h" */
+/* #include		"list_va_arg.h" */
+/* #include		"get_elem_to_print.h" */
 
 int			my_printf(char *str, ...)
 {

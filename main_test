@@ -1,4 +1,4 @@
-
+#include "my.h"
 int main()
 {
   my_printf("cou\n");
