@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:22:01 2015 Florian Vuillemot
-** Last update Tue Nov 10 00:16:20 2015 Florian Vuillemot
+** Last update Wed Nov 11 14:45:06 2015 Florian Vuillemot
 */
 
 #include			"node_va_arg.h"
@@ -16,7 +16,6 @@ t_node_va_arg			*init_node_va_arg(t_flag *flag,
 						  unsigned int index)
 {
   t_node_va_arg			*res;
-  char				sign;
   int				type;
 
   if (!flag || !list)

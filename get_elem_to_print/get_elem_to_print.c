@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Tue Nov 10 13:45:04 2015 Florian Vuillemot
+** Last update Wed Nov 11 15:07:44 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -23,7 +23,7 @@ t_string		*get_elem_to_print(t_string *string, t_flag *flag,
     {
       if (string->string[cursor] == '%')
 	{
-	  if ((ind = contain_flag_fct(flag, string->string + cursor + 1)) > 0)
+	  if ((ind = contain_flag_fct(flag, string->string + cursor + 1)) > -1)
 	    {
 	      string = remove_elem_to_string(string, cursor);
 	      if ((string = get_flag_character(string, cursor, list, flag))

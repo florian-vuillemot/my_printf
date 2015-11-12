@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:48:56 2015 Florian Vuillemot
+** Last update Wed Nov 11 23:37:37 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -22,10 +22,10 @@ static t_string		*add_complete_width(t_string *string,
   return (add_elem_to_string(string, *cursor, node->complete_width));
 }
 
-t_string		*get_flag_integer(t_string *string,
-					  unsigned int *cursor,
-					  int type_flag,
-					  t_list_va_arg *list)
+t_string		*get_flag_integer_and_convert(t_string *string,
+						      unsigned int *cursor,
+						      int type_flag,
+						      t_list_va_arg *list)
 {
   unsigned int	       	minus;
   t_node_va_arg		*node;
@@ -35,19 +35,17 @@ t_string		*get_flag_integer(t_string *string,
     return (NULL);
   node = list->cursor;
   get_arg(list);
-  string = clean_string_and_get_data(string, cursor, &minus, node);
+  string = clean_string_data_convert(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor, node);
-  if (minus == 3)
-    {
-      if ((string = add_complete_width(string, cursor, &wi_prec, node))
-	  == NULL)
-	return (NULL);
-      minus = minus - 2;
-      *cursor = *cursor + 1;
-    }
   wi_prec.precision = get_precision(string, *cursor, node);
+ if (minus == 3)
+    {
+      minus = minus - 2;
+      if (wi_prec.precision > 0 && node->type == PRINT_OCTAL)
+	wi_prec.precision = wi_prec.precision - 1;
+    }
   string = remove_elem_to_string(string, *cursor);
   if (minus == 1)
-    return (get_width_precision_string_minus(string, &wi_prec, *cursor, node));
-  return (get_width_precision_string(string, &wi_prec, *cursor, node));
+    return (get_width_prec_convert_minus(string, &wi_prec, *cursor, node));
+  return (get_width_prec_str_convert(string, &wi_prec, *cursor, node));
 }

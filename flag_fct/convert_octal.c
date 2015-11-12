@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 17:40:06 2015 Florian Vuillemot
-** Last update Tue Nov 10 20:34:22 2015 Florian Vuillemot
+** Last update Wed Nov 11 10:08:09 2015 Florian Vuillemot
 */
 
 #include		"my_string.h"
@@ -53,14 +53,12 @@ static unsigned int	get_nb_octal(unsigned long int nb,
   return (res);
 }
 
-char			*convert_octal(unsigned long int nb, char *octal)
+char			*convert_octal(unsigned long int nb)
 {
   char			*res;
   unsigned long int	curs;
   int			size;
 
-  if (!octal)
-    return (NULL);
   size = get_size(nb);
   if ((res = malloc(sizeof(char) * size)) == NULL)
     return (NULL);
@@ -69,7 +67,7 @@ char			*convert_octal(unsigned long int nb, char *octal)
   curs = 0;
   while (size > -1)
     {
-      res[size] = octal[get_nb_octal(nb, curs)];
+      res[size] = "01234567"[get_nb_octal(nb, curs)];
       size = size - 1;
       curs = curs + 3;
     }

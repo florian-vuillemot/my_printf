@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 20:39:21 2015 Florian Vuillemot
-** Last update Wed Nov 11 08:42:53 2015 Florian Vuillemot
+** Last update Wed Nov 11 08:45:01 2015 Florian Vuillemot
 */
 
 #include "my_string.h"
@@ -63,7 +63,7 @@ char			*flag_s_maj(va_list *list, int *type)
   int			curs;
   char			convert;
 
-  if (!list)
+  if (!list || !type)
     return (NULL);
   if ((res = va_arg(list, char *)) == NULL ||
       (string = create_string(res)) == NULL)

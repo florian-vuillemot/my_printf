@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 15:02:50 2015 Florian Vuillemot
-** Last update Tue Nov 10 12:41:31 2015 Florian Vuillemot
+** Last update Thu Nov 12 01:00:04 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -14,7 +14,6 @@ unsigned int		get_field_width(t_string *string, unsigned int curs,
 					t_node_va_arg *node)
 {
   int			nb;
-  unsigned int		precision;
 
   if (!string || !string->string)
     return (0);
@@ -48,4 +47,21 @@ unsigned int		get_precision(t_string *string, unsigned int cur,
   else
     precision = 0;
   return (precision);
+}
+
+unsigned int		get_string_precision(t_string *string,
+					     unsigned int cur,
+					     t_node_va_arg *node)
+{
+  int			get_nb;
+
+  if (!string || !string->string || string->string[cur] != '.')
+    return (0);
+  string = remove_elem_to_string(string, cur);
+  get_nb = my_getnbr(string->string + cur);
+  while (string->string[cur] <= '9' && string->string[cur] >= '0')
+    string = remove_elem_to_string(string, cur);
+  if (get_nb <= 0)
+    return (0);
+  return ((unsigned int)get_nb);
 }

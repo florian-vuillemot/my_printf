@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Tue Nov 10 20:34:47 2015 Florian Vuillemot
+** Last update Wed Nov 11 14:14:29 2015 Florian Vuillemot
 */
 
 #ifndef		MY_STRING_H_
@@ -32,13 +32,8 @@ int		my_getnbr(char *);
 
 /* my_put_nbr */
 char		*my_putnbr_string(long int);
+char		*my_put_ll_nbr(long long int);
 
-/* convert_hexa */
-char		*convert_hexa(unsigned long int, char *);
-
-/* convert_octal */
-char		*convert_octal(unsigned long int, char *);
-
-/* convert_binaire */
-char		*convert_binaire(unsigned long int);
+/* my_put_llu_nbr */
+char		*my_put_llu_nbr(unsigned long long int);
 #endif /* !MY_STRING_H_ */
