@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 17:37:06 2015 Florian Vuillemot
+** Last update Fri Nov 13 12:42:01 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -38,7 +38,6 @@ t_string		*get_width_precision_string(t_string *str,
     str = add_elem_to_string(str, cursor++, '0');
   return (insert_string(str, node->arg, cursor));
 }
-
 
 static t_string		*add_elem_on_get_width_precision(t_string *string,
 							 unsigned int *cursor,

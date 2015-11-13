@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 06:52:05 2015 Florian Vuillemot
+** Last update Fri Nov 13 21:45:40 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -25,12 +25,8 @@ t_string		*get_flag_integer_and_convert(t_string *string,
   string = clean_string_data_convert(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor);
   wi_prec.precision = get_precision(string, *cursor, node);
- if (minus == 3)
-    {
-      minus = minus - 2;
-      if (wi_prec.precision > 0 && node->type == PRINT_OCTAL)
-	wi_prec.precision = wi_prec.precision - 1;
-    }
+  if (minus == 3)
+    minus = minus - 2;
   string = remove_elem_to_string(string, *cursor);
   if (minus == 1)
     return (get_width_prec_convert_minus(string, &wi_prec, *cursor, node));

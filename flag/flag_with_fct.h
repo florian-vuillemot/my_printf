@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:55:41 2015 Florian Vuillemot
-** Last update Thu Nov 12 01:56:10 2015 Florian Vuillemot
+** Last update Fri Nov 13 12:23:30 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_WITH_FCT_H_
@@ -33,6 +33,10 @@ typedef struct		s_flag_with_fct
 # define		CONVERT_MIN -2
 # define		OCTAL -3
 # define		PRINT_OCTAL 1
+# define		PRINT_HEXA_0X 11
+# define		PRINT_HEXA_0 10
+# define		PRINT_OCTAL_0 9
+# define		PRINT_H_O 8
 
 # define		CHARACTER 0
 # define		INTEGER_POS 1

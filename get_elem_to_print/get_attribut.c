@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Fri Nov 13 07:40:23 2015 Florian Vuillemot
+** Last update Fri Nov 13 22:35:50 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -92,22 +92,21 @@ t_string		*clean_string_data_string(t_string *string,
 
 static t_string		*choice_node_type_to_convert(t_string *string,
 						     unsigned int *cursor,
-						     unsigned int *minus,
 						     t_node_va_arg *node)
 {
-  if (!string || !string->string || !minus || !cursor || !node)
+  if (!string || !string->string || !cursor || !node)
     return (NULL);
   if (string->string[*cursor] == '#')
     {
       if (node->type == CONVERT_MAJ)
-	node->type = 'X';
+	node->type = PRINT_HEXA_0X;
       if (node->type == CONVERT_MIN)
-	node->type = 'x';
+	node->type = PRINT_HEXA_0;
       if (node->type == OCTAL)
-	node->type = PRINT_OCTAL;
-      *minus = 2;
+	node->type = PRINT_OCTAL_0;
+      string = remove_elem_to_string(string, *cursor);
     }
-  return ((string = remove_elem_to_string(string, *cursor)));
+  return (string);
 }
 
 t_string		*clean_string_data_convert(t_string *string,
@@ -118,13 +117,16 @@ t_string		*clean_string_data_convert(t_string *string,
   if (!string || !node || !cursor || !minus)
     return (NULL);
   *minus = 0;
-  if ((string = choice_node_type_to_convert(string, cursor, minus, node))
+  if ((string = choice_node_type_to_convert(string, cursor, node))
       == NULL)
     return (NULL);
   if (string->string[*cursor] == ' ')
     string = remove_elem_to_string(string, *cursor);
   if (string->string[*cursor] == '+')
-    string = remove_elem_to_string(string, *cursor);
+    {
+      string = remove_elem_to_string(string, *cursor);
+      *minus = 2;
+    }
   if (string->string[*cursor] == '-' && (*minus = *minus + 1))
     {
       string = remove_elem_to_string(string, *cursor);
