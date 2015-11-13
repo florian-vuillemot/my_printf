@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Fri Nov 13 08:54:24 2015 Florian Vuillemot
+** Last update Fri Nov 13 09:20:41 2015 Florian Vuillemot
 */
 
 #ifndef			GET_ELEM_TO_PRINT_H_
@@ -22,7 +22,7 @@ typedef struct		s_width_prec
 
 /* get_elem_to_print */
 t_string		*get_elem_to_print(t_string *, t_flag *,
-					     t_list_va_arg *);
+					   t_list_va_arg *);
 
 /* get_attribut */
 t_string		*get_flag_character(t_string *, unsigned int,
@@ -43,7 +43,8 @@ t_string		*clean_string_data_convert(t_string *,
 /* get_flag_integer */
 t_string		*get_flag_integer(t_string *, unsigned int *,
 					  t_list_va_arg *);
-
+t_string		*add_complete_width(t_string *, unsigned int *,
+					    t_width_prec *, t_node_va_arg *);
 /* get_flag_integer_convert */
 t_string		*get_flag_integer_and_convert(t_string *,
 						      unsigned int *,

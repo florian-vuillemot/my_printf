@@ -5,13 +5,13 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Fri Nov 13 07:13:00 2015 Florian Vuillemot
+** Last update Fri Nov 13 09:20:45 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
 t_string		*add_complete_width(t_string *string,
-					   unsigned int *cursor,
+					    unsigned int *cursor,
 					    t_width_prec *wi_prec,
 					    t_node_va_arg *node)
 {
