@@ -5,12 +5,11 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 14:43:29 2015 Florian Vuillemot
+** Last update Fri Nov 13 07:13:00 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
-//static
 t_string		*add_complete_width(t_string *string,
 					   unsigned int *cursor,
 					    t_width_prec *wi_prec,
@@ -21,6 +20,21 @@ t_string		*add_complete_width(t_string *string,
   else
     wi_prec->width = 0;
   return (add_elem_to_string(string, *cursor, node->complete_width));
+}
+
+static unsigned int	put_complete_width(t_string *string,
+					   unsigned int *cursor,
+					   t_width_prec *wi_prec,
+					   t_node_va_arg *node)
+{
+  char			complete_width;
+
+  complete_width = node->complete_width;
+  node->complete_width = ' ';
+  string = add_complete_width(string, cursor, wi_prec, node);
+  node->complete_width = complete_width;
+  *cursor = *cursor + 1;
+  return (2);
 }
 
 t_string		*get_flag_integer(t_string *string,
@@ -38,13 +52,7 @@ t_string		*get_flag_integer(t_string *string,
   string = clean_string_and_get_data(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor);
   if (minus > 1)
-    {
-      if ((string = add_complete_width(string, cursor, &wi_prec, node))
-	  == NULL)
-	return (NULL);
-      minus = minus - 2;
-      *cursor = *cursor + 1;
-    }
+    minus = minus - put_complete_width(string, cursor, &wi_prec, node);
   wi_prec.precision = get_precision(string, *cursor, node);
   string = remove_elem_to_string(string, *cursor);
   if (minus == 1)

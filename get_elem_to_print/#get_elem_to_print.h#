@@ -22,7 +22,7 @@ typedef struct		s_width_prec
 
 /* get_elem_to_print */
 t_string		*get_elem_to_print(t_string *, t_flag *,
-					     t_list_va_arg *);
+					   t_list_va_arg *);
 
 /* get_attribut */
 t_string		*get_flag_character(t_string *, unsigned int,
