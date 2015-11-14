@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sat Nov 14 08:43:13 2015 Florian Vuillemot
+** Last update Sat Nov 14 10:08:22 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -34,16 +34,19 @@ t_string		*get_with_flag_string(t_string *string,
 
   if (!list || !string || !list->cursor || !string->string || !cursor)
     return (NULL);
-  node = list->cursor;
+  if ((node = list->cursor) == NULL)
+    return (NULL);
   get_arg(list);
-  string = clean_string_data_string(string, cursor, &minus, node);
+  if ((string = clean_string_data_string(string, cursor, &minus, node)) == 0)
+    return (NULL);
   wi_prec.width = get_field_width(string, *cursor);
   if (string->string[*cursor] == '.')
     wi_prec.precision = get_string_precision(string, *cursor);
   else
     wi_prec.precision = -1;
   set_width_prec_string(node, &wi_prec, string);
-  string = remove_elem_to_string(string, *cursor);
+  if ((string = remove_elem_to_string(string, *cursor)) == NULL)
+    return (NULL);
   if (minus == 1)
     return (get_width_prec_string_minus(string, &wi_prec, *cursor, node));
   return (get_width_prec_string(string, &wi_prec, *cursor, node));

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 11:15:53 2015 Florian Vuillemot
-** Last update Sat Nov 14 08:46:59 2015 Florian Vuillemot
+** Last update Sat Nov 14 09:53:12 2015 Florian Vuillemot
 */
 
 #include		"flag_function.h"
@@ -22,12 +22,6 @@ void			get_flag_string(t_flag_with_fct *tab, unsigned int *nb)
   *nb = *nb + 1;
   tab[*nb].flag_fct = &flag_c;
   tab[*nb].flag = my_strdup("c");
-  *nb = *nb + 1;
-  tab[*nb].flag_fct = &flag_c;
-  tab[*nb].flag = my_strdup("hc");
-  *nb = *nb + 1;
-  tab[*nb].flag_fct = &flag_c;
-  tab[*nb].flag = my_strdup("hhc");
   *nb = *nb + 1;
 }
 

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 10:30:16 2015 Florian Vuillemot
-** Last update Sat Nov 14 09:00:49 2015 Florian Vuillemot
+** Last update Sat Nov 14 10:15:13 2015 Florian Vuillemot
 */
 
 #ifndef			GET_ELEM_TO_PRINT_H_
@@ -47,6 +47,7 @@ t_string		*get_flag_integer(t_string *, unsigned int *,
 					  t_list_va_arg *);
 t_string		*add_complete_width(t_string *, unsigned int *,
 					    t_width_prec *, t_node_va_arg *);
+
 /* get_flag_integer_convert */
 t_string		*get_flag_integer_and_convert(t_string *,
 						      unsigned int *,
@@ -105,4 +106,9 @@ t_string		*get_width_prec_pnt_convert_minus(t_string *,
 							  t_width_prec *,
 							  unsigned int,
 							  t_node_va_arg *);
+
+/* get_flag_modulo */
+t_string		*get_flag_modulo(t_string *, unsigned int *,
+					 t_list_va_arg *);
+
 #endif /* !GET_ELEM_TO_PRINT_H_ */

@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Thu Nov 12 16:51:26 2015 Florian Vuillemot
+## Last update Sat Nov 14 10:17:29 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -33,6 +33,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			flag_fct/flag_j_z.c					\
 			flag_fct/flag_p.c					\
 			flag_fct/flag_string.c					\
+			flag_fct/flag_modulo.c					\
 			flag_fct/flag_unsigned_long_short.c			\
 			flag/flag_and_fct.c					\
 			flag/flag_with_fct.c					\
@@ -48,6 +49,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			get_elem_to_print/get_width_precision_string.c		\
 			get_elem_to_print/get_width_precision_pnt.c		\
 			get_elem_to_print/get_flag_pnt.c			\
+			get_elem_to_print/get_flag_modulo.c			\
 			list_va_arg/get_elem_list_va_arg.c			\
 			list_va_arg/list_va_arg.c				\
 			list_va_arg/node_va_arg.c				\

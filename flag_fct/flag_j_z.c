@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 11:55:20 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:15:03 2015 Florian Vuillemot
+** Last update Sat Nov 14 11:29:09 2015 Florian Vuillemot
 */
 
 #include			"flag_function.h"
@@ -35,6 +35,7 @@ char				*flag_jd(va_list *list, int *type)
 
   if (!list || !type)
     return (NULL);
+  *type = INTEGER_POS;
   res = (long long int)va_arg(list, intmax_t);
   return (my_put_ll_nbr(res));
 }
@@ -45,6 +46,7 @@ char				*flag_ju(va_list *list, int *type)
 
   if (!list || !type)
     return (NULL);
+  *type = TYPE_UNSIGNED;
   res = (unsigned long long int)va_arg(list, uintmax_t);
   return (my_put_llu_nbr(res));
 }
@@ -55,6 +57,7 @@ char				*flag_td(va_list *list, int *type)
 
   if (!list || !type)
     return (NULL);
+  *type = INTEGER_POS;
   res = (long long int)va_arg(list, ptrdiff_t);
   return (my_put_ll_nbr(res));
 }
@@ -65,6 +68,7 @@ char				*flag_tu(va_list *list, int *type)
 
   if (!list || !type)
     return (NULL);
+  *type = TYPE_UNSIGNED;
   res = (unsigned long long int)va_arg(list, ptrdiff_t);
   return (my_put_llu_nbr(res));
 }

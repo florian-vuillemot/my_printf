@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sat Nov 14 08:59:32 2015 Florian Vuillemot
+** Last update Sat Nov 14 11:22:30 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -19,9 +19,11 @@ t_string		*get_flag_long(t_string *string,
   if (!string || !cursor || !list)
     return (NULL);
   i = *cursor;
-  while (string->string[i] != 'l')
+  while (string->string[i] &&
+	 found_char_in_string(string->string[i], TYPE_L_S_P) == 0)
     i++;
-  if (string->string[i] == 'l')
+  while (string && string->string[i] &&
+	 found_char_in_string(string->string[i], TYPE_L_S_P))
     string = remove_elem_to_string(string, i);
   return (get_flag_integer(string, cursor, list));
 }
@@ -67,7 +69,7 @@ t_string		*get_flag_integer(t_string *string,
   get_arg(list);
   string = clean_string_and_get_data(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor);
-  if (minus > 1)
+  if (minus > 1 && node->type != TYPE_UNSIGNED)
     minus = minus - put_complete_width(string, cursor, &wi_prec, node);
   wi_prec.precision = get_precision(string, *cursor, node);
   string = remove_elem_to_string(string, *cursor);

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sat Nov 14 09:00:13 2015 Florian Vuillemot
+** Last update Sat Nov 14 11:21:27 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -22,17 +22,16 @@ t_string		*get_flag_character(t_string *string,
     return (NULL);
   if (found_char_in_string(flag->flag_and_fct[nb_fg].flag[0], TYPE_INTEGER))
     {
-      if (flag->flag_and_fct[nb_fg].flag[0] == 'o' ||
-	  flag->flag_and_fct[nb_fg].flag[0] == 'x' ||
-	  flag->flag_and_fct[nb_fg].flag[0] == 'X' ||
-	  flag->flag_and_fct[nb_fg].flag[0] == 'b')
+      if (found_char_in_string(flag->flag_and_fct[nb_fg].flag[0], TYPE_H_O))
 	return (get_flag_integer_and_convert(string, &cursor, list));
-      if (flag->flag_and_fct[nb_fg].flag[0] == 'l')
+      if (found_char_in_string(flag->flag_and_fct[nb_fg].flag[0], TYPE_L_S_P))
 	return (get_flag_long(string, &cursor, list));
       return (get_flag_integer(string, &cursor, list));
     }
   if (flag->flag_and_fct[nb_fg].flag[0] == 'p')
     return (get_flag_pnt(string, &cursor, list));
+  if (flag->flag_and_fct[nb_fg].flag[0] == '%')
+    return (get_flag_modulo(string, &cursor, list));
   return (get_with_flag_string(string, &cursor, list));
 }
 
