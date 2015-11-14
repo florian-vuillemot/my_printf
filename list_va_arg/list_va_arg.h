@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:10:21 2015 Florian Vuillemot
-** Last update Sun Nov  8 17:41:42 2015 Florian Vuillemot
+** Last update Sat Nov 14 15:57:29 2015 Florian Vuillemot
 */
 
 #ifndef			LIST_VA_ARG_H_
@@ -34,4 +34,6 @@ t_list_va_arg		*free_list_va_arg(t_list_va_arg *);
 char			*get_index_arg(t_list_va_arg *, unsigned int);
 char			*get_arg(t_list_va_arg *);
 
+/* replace_star_and_dollar */
+t_string		*replace_star_and_dollar(t_string *, va_list *);
 #endif /* !LIST_VA_ARG_H_ */

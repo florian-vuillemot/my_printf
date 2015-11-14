@@ -1,7 +1,7 @@
 #include "my.h"
 int main()
 {
-  my_printf("% +00032d %lu<\n", 'a',43);
+  my_printf("%ld<\n", -34,43);
   printf("% +00032d %lu<\n", 'a',43);
   my_printf("%# 26d<\n", 'a');
   printf("%# 26d<\n", 'a');
@@ -62,6 +62,8 @@ int main()
 
   printf("partie 9:\n");
   my_printf("%#+.32d<\n", 'a');
+
+
   printf("%#+.32d<\n", 'a');
   my_printf("%#-.26d<\n", 'a');
   printf("%#-.26d<\n", 'a');
@@ -87,14 +89,20 @@ int main()
   printf("partie 13:\n");
   my_printf("%#-+d<\n", 'a');
   printf("%#+-d<\n", 'a');
-  my_printf("%# -+d<\n", 'a');
+  my_printf("%# -+d< %d%d %d\n", 'a',10,11,12);
   printf("%# -+d<\n", 'a');
 
-  printf("partie 14:\n");
-  my_printf("%1$d<\n", 'a');
-  printf("%1$d<\n", 'a');
-  my_printf("%2$d<\n", 'a');
-  printf("%2$d<\n", 'a');
+  /* printf("partie 14:\n"); */
+  /* my_printf("%1$d %d %d %d %d %2$d %d<\n", 'a',34,32); */
+  /* printf("%10$c %d <\n", 'a', 34); */
+  /* my_printf("%2$d %c %c %c<\n", 'a','1','2','3'); */
+  /* printf("%2$o %c %c %c<\n", 'a','1','2','3'); */
+  /* printf("%2$d<\n", 'a', 32); */
+
+  my_printf("%s%%%d%s","astek",32,"moulkjinl","moulinnete");
+  printf("\n");
+  printf("%s%%%d%s","astek",42,"moulinnete");
+  printf("\n");
 
   return (0);
 }

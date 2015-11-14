@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 14:30:47 2015 Florian Vuillemot
-** Last update Sun Nov  8 20:53:06 2015 Florian Vuillemot
+** Last update Sat Nov 14 16:43:11 2015 Florian Vuillemot
 */
 
 #ifndef			STRUCT_STRING_H_

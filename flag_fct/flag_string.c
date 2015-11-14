@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 11:15:53 2015 Florian Vuillemot
-** Last update Sat Nov 14 09:53:12 2015 Florian Vuillemot
+** Last update Sat Nov 14 18:28:22 2015 Florian Vuillemot
 */
 
 #include		"flag_function.h"
@@ -32,7 +32,7 @@ char			*flag_s(va_list *list, int *type)
   if (!list || !type)
     return (NULL);
   *type = INTEGER_POS;
-  if ((res = va_arg(list, char *)) == NULL)
+  if ((res = va_arg(*list, char *)) == NULL)
     return (my_strdup("(null)"));
   if ((res = my_strdup(res)) == NULL)
     return (my_strdup("(null)"));
@@ -47,6 +47,6 @@ char			*flag_c(va_list *list, int *type)
     return (NULL);
   *type = CHARACTER;
   res[1] = '\0';
-  res[0] = (char)va_arg(list, int);
+  res[0] = (char)va_arg(*list, int);
   return (my_strdup(res));
 }

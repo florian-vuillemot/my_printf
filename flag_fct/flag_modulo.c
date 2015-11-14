@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 11:15:53 2015 Florian Vuillemot
-** Last update Sat Nov 14 10:13:32 2015 Florian Vuillemot
+** Last update Sat Nov 14 18:42:02 2015 Florian Vuillemot
 */
 
 #include		"flag_function.h"
@@ -21,10 +21,8 @@ void			get_flag_m(t_flag_with_fct *tab, unsigned int *nb)
 
 char			*flag_modulo(va_list *list, int *type)
 {
-  char			*res;
-
   if (!list || !type)
     return (NULL);
   *type = NO_TYPE;
-  return (res = my_strdup("%"));
+  return (my_strdup("%"));
 }

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:25:12 2015 Florian Vuillemot
-** Last update Thu Nov 12 09:42:57 2015 Florian Vuillemot
+** Last update Sat Nov 14 17:41:57 2015 Florian Vuillemot
 */
 
 //#include		"my.h"
@@ -29,6 +29,8 @@ int			my_printf(char *str, ...)
   if ((flag = init_flag_and_fct()) == 0 || (string = parse(str, flag)) == 0)
     return (-1);
   arg = init_list_va_arg(flag, string->string, &list);
+  if (arg && (string = replace_star_and_dollar(string, &list)) == NULL)
+    return (-1);
   if (arg && (string = get_elem_to_print(string, flag, arg)) == NULL)
     return (-1);
   print_string(string);

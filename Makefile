@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Sat Nov 14 10:17:29 2015 Florian Vuillemot
+## Last update Sat Nov 14 13:23:15 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -53,6 +53,7 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			list_va_arg/get_elem_list_va_arg.c			\
 			list_va_arg/list_va_arg.c				\
 			list_va_arg/node_va_arg.c				\
+			list_va_arg/replace_star_and_dollar.c			\
 			parsing/operator_parse.c				\
 			parsing/pars.c						\
 			string/init_struct_string.c				\

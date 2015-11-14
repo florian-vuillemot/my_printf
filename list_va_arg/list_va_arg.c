@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Thu Nov 12 09:55:30 2015 Florian Vuillemot
+** Last update Sat Nov 14 18:48:08 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -48,6 +48,7 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
 	       add_list_va_arg(res, flag, list, (unsigned int)num_flag))
 	      == NULL)
 	    return (NULL);
+	r_str++;
       }
   if ((res = check_dollar_in_string(res, flag, str, list)) == NULL)
     return (NULL);
@@ -62,15 +63,16 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
 ** ATTENTION
 **
 **
- */
+*/
 t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
 						t_flag *flag, char *str,
 						va_list *list)
 {
   unsigned int		max;
   int			i;
+  unsigned int		index;
 
-  if (!arg || !arg->last_elem || !flag || !str || !list)
+  if (/*!arg || !arg->last_elem || */!flag || !str || !list)
     return (free_list_va_arg(arg));
   max = 0;
   while (*str)
@@ -85,7 +87,8 @@ t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
 	}
       str = str + 1;
     }
-  while (max > arg->last_elem->index)
+  index = (arg && arg->last_elem) ? arg->last_elem->index : 0;
+  while (max > index++)
     if (!(arg->last_elem = add_node_va_arg(flag, NUM_FLAG_STAR,
 					   arg->last_elem, list)))
       return (free_list_va_arg(arg));
@@ -116,7 +119,7 @@ t_list_va_arg		*add_list_if_start(t_list_va_arg *arg, t_flag *flag,
 }
 
 t_list_va_arg		*add_list_va_arg(t_list_va_arg *arg, t_flag *flag,
-					va_list *list, unsigned int num_flag)
+					 va_list *list, unsigned int num_flag)
 {
   if (!arg || !flag || !list)
     return (NULL);
