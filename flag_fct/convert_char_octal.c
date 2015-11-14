@@ -5,12 +5,10 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 20:39:21 2015 Florian Vuillemot
-** Last update Thu Nov 12 06:36:57 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:34:30 2015 Florian Vuillemot
 */
 
-#include "my_string.h"
-#include "struct_string.h"
-#include <stdarg.h>
+#include "flag_function.h"
 
 static char		char_to_octal(char convert, int curs)
 {
@@ -65,11 +63,12 @@ char			*flag_s_maj(va_list *list, int *type)
 
   if (!list || !type)
     return (NULL);
+  *type = ALL_CHAR;
   if ((res = va_arg(list, char *)) == NULL ||
       (string = create_string(res)) == NULL)
     return (my_strdup("(null)"));
   curs = -1;
-  while (string->string[(curs = curs + 1)])
+  while (string->string[++curs])
     if (string->string[curs] < 32 || string->string[curs] >= 127)
       {
 	convert = string->string[curs];

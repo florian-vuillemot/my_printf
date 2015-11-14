@@ -5,10 +5,24 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 06:59:18 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:43:13 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
+
+static void		set_width_prec_string(t_node_va_arg *node,
+					      t_width_prec *wi_prec,
+					      t_string *string)
+{
+  if (!string || !wi_prec || !wi_prec)
+    return ;
+  if (node->type == CHARACTER)
+    wi_prec->precision = 1;
+  if (my_strlen(node->arg) > wi_prec->precision)
+    node->arg[wi_prec->precision] = '\0';
+  if (wi_prec->width > wi_prec->precision)
+    wi_prec->precision = wi_prec->width - wi_prec->precision;
+}
 
 t_string		*get_with_flag_string(t_string *string,
 					      unsigned int *cursor,
@@ -28,12 +42,7 @@ t_string		*get_with_flag_string(t_string *string,
     wi_prec.precision = get_string_precision(string, *cursor);
   else
     wi_prec.precision = -1;
-  if (node->type == CHARACTER)
-    wi_prec.precision = 1;
-  if (my_strlen(node->arg) > wi_prec.precision)
-    node->arg[wi_prec.precision] = '\0';
-  if (wi_prec.width > wi_prec.precision)
-    wi_prec.precision = wi_prec.width - wi_prec.precision;
+  set_width_prec_string(node, &wi_prec, string);
   string = remove_elem_to_string(string, *cursor);
   if (minus == 1)
     return (get_width_prec_string_minus(string, &wi_prec, *cursor, node));

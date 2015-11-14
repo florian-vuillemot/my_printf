@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 11:15:53 2015 Florian Vuillemot
-** Last update Thu Nov 12 01:53:28 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:46:59 2015 Florian Vuillemot
 */
 
 #include		"flag_function.h"
@@ -44,7 +44,6 @@ char			*flag_s(va_list *list, int *type)
     return (my_strdup("(null)"));
   return (res);
 }
-
 
 char			*flag_c(va_list *list, int *type)
 {

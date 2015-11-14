@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:55:41 2015 Florian Vuillemot
-** Last update Fri Nov 13 12:23:30 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:54:52 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_WITH_FCT_H_
@@ -28,7 +28,7 @@ typedef struct		s_flag_with_fct
 # define		NB_FCT 28
 # define		PRIOR_CHARACTER "# +-0"
 # define		NUM_FLAG_STAR 0
-# define		TYPE_INTEGER "diuxXhob"
+# define		TYPE_INTEGER "diuxXhobl"
 # define		CONVERT_MAJ -1
 # define		CONVERT_MIN -2
 # define		OCTAL -3
@@ -39,6 +39,7 @@ typedef struct		s_flag_with_fct
 # define		PRINT_H_O 8
 
 # define		CHARACTER 0
+# define		ALL_CHAR 3
 # define		INTEGER_POS 1
 # define		INTEGER_MINUS -1
 # define		INTEGER_POS_WITH_PLUS 2

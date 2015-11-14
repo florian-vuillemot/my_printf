@@ -5,10 +5,26 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Fri Nov 13 09:20:45 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:59:32 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
+
+t_string		*get_flag_long(t_string *string,
+				       unsigned int *cursor,
+				       t_list_va_arg *list)
+{
+  unsigned int		i;
+
+  if (!string || !cursor || !list)
+    return (NULL);
+  i = *cursor;
+  while (string->string[i] != 'l')
+    i++;
+  if (string->string[i] == 'l')
+    string = remove_elem_to_string(string, i);
+  return (get_flag_integer(string, cursor, list));
+}
 
 t_string		*add_complete_width(t_string *string,
 					    unsigned int *cursor,

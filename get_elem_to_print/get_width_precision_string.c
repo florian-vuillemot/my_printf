@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Thu Nov 12 01:56:17 2015 Florian Vuillemot
+** Last update Sat Nov 14 08:39:04 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -30,7 +30,7 @@ t_string		*get_width_prec_string(t_string *str,
 
   if (!str || !str->string || !node || !node->arg || !w_p)
     return (NULL);
-  len = my_strlen(node->arg);
+  len = my_strlen(node->arg) + (node->type == ALL_CHAR ? 1 : 0);
   while (w_p->width > len)
     str = add_elem_on_get_width_precision(str, &cursor,
 					  node->complete_width, &w_p->width);
@@ -50,6 +50,8 @@ t_string		*get_width_prec_string_minus(t_string *string,
   if ((string = insert_string(string, nd->arg, cur)) == NULL)
     return (NULL);
   cur = cur + len;
+  if (nd->type == ALL_CHAR)
+    len++;
   while (w_p->width > len)
     string = add_elem_on_get_width_precision(string, &cur,
 					     nd->complete_width, &w_p->width);
