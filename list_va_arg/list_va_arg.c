@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Sun Nov 15 00:41:59 2015 Florian Vuillemot
+** Last update Sun Nov 15 10:00:14 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -42,7 +42,7 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
     {
       if (*r_str == '%')
 	{
-	  if ((res = add_list_if_start(res, flag, ++r_str, list)) == NULL)
+	  if ((res = add_list_if_star(res, flag, ++r_str, list)) == NULL)
 	    return (NULL);
 	  if ((num_flag = contain_flag_fct_star(flag, r_str)) > -1)
 	    if ((res = add_list_va_arg(res, flag, list,
@@ -51,63 +51,23 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
 	}
       r_str = r_str + (*r_str ? 1 : 0);
     }
-  if ((res = check_dollar_in_string(res, flag, str, list)) == NULL)
-    return (NULL);
   return (res);
 }
 
-
-/*
-**
-**
-**
-** ATTENTION
-**
-**
-*/
-t_list_va_arg		*check_dollar_in_string(t_list_va_arg *arg,
-						t_flag *flag, char *str,
-						va_list *list)
-{
-  unsigned int		max;
-  int			i;
-  unsigned int		index;
-
-  if (!flag || !str || !list)
-    return (free_list_va_arg(arg));
-  max = 0;
-  while (*str)
-    {
-      if (*str == '%' && contain_flag_fct(flag, str + 1) > -1)
-	{
-	  i = 1;
-	  while (str[i] <= '9' && str[i] >= '0')
-	    i = i + 1;
-	  if (str[i] == '$')
-	    max = (unsigned int)MAX(my_getnbr(str + 1), (int)max);
-	}
-      str = str + 1;
-    }
-  index = (arg && arg->last_elem) ? arg->last_elem->index : 0;
-  while (max > index++)
-    if (!(arg->last_elem = add_node_va_arg(flag, NUM_FLAG_STAR,
-					   arg->last_elem, list)))
-      return (free_list_va_arg(arg));
-  return (arg);
-}
-
-t_list_va_arg		*add_list_if_start(t_list_va_arg *arg, t_flag *flag,
-					   char *str, va_list *list)
+t_list_va_arg		*add_list_if_star(t_list_va_arg *arg, t_flag *flag,
+					  char *str, va_list *list)
 {
   unsigned int		i;
+  int			nb;
 
   if (!arg || !str || !list || !flag || !flag->flag_and_fct->flag)
     return (NULL);
-  if (contain_star(str))
+  nb = contain_star(str);
+  while (nb-- > 0)
     {
       i = 0;
-      while (flag->flag_and_fct[i].flag && *flag->flag_and_fct[i++].flag != 'd')
-	if (flag->flag_and_fct[i].flag == NULL)
+      while (flag->flag_and_fct[i].flag && *flag->flag_and_fct[i].flag != 'd')
+	if (flag->flag_and_fct[++i].flag == NULL)
 	  return (arg);
       if (!arg->first_elem)
 	{
@@ -115,7 +75,6 @@ t_list_va_arg		*add_list_if_start(t_list_va_arg *arg, t_flag *flag,
 	    return (free_list_va_arg(arg));
 	  arg->cursor = arg->first_elem;
 	  arg->last_elem = arg->first_elem;
-	  return (arg);
 	}
       if (!(arg->last_elem = add_node_va_arg(flag, i, arg->last_elem, list)))
 	return (free_list_va_arg(arg));

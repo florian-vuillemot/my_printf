@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:10:21 2015 Florian Vuillemot
-** Last update Sat Nov 14 23:15:20 2015 Florian Vuillemot
+** Last update Sun Nov 15 09:45:47 2015 Florian Vuillemot
 */
 
 #ifndef			LIST_VA_ARG_H_
@@ -20,11 +20,9 @@ typedef struct		s_list_va_arg
   t_node_va_arg		*last_elem;
 }			t_list_va_arg;
 
-/* récupére le char* est tout les *, $ qu'il y a dedans */
+/* récupére le char* est tout les * qu'il y a dedans */
 t_list_va_arg		*init_list_va_arg(t_flag *, char *, va_list *);
-t_list_va_arg		*check_dollar_in_string(t_list_va_arg *, t_flag *,
-						char *, va_list *);
-t_list_va_arg		*add_list_if_start(t_list_va_arg *, t_flag *,
+t_list_va_arg		*add_list_if_star(t_list_va_arg *, t_flag *,
 					   char *, va_list *);
 t_list_va_arg		*add_list_va_arg(t_list_va_arg *, t_flag *,
 					 va_list *, unsigned int);

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Sun Nov 15 01:06:48 2015 Florian Vuillemot
+** Last update Sun Nov 15 10:05:20 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -39,22 +39,6 @@ char			*get_arg(t_list_va_arg *arg)
   return (NULL);
 }
 
-static t_list_va_arg	*re_index_arg(t_list_va_arg *arg)
-{
-  t_node_va_arg		*node;
-  unsigned int		new_index;
-
-  if (!arg || !(node = arg->first_elem))
-    return (arg);
-  new_index = 1;
-  while (node)
-    {printf("nb %s\n",node->arg);
-      node->index = new_index++;
-      node = node->next;
-    }printf("end\n");
-  return (arg);
-}
-
 t_list_va_arg		*delete_arg(t_list_va_arg *arg, unsigned int index)
 {
   t_node_va_arg		*node;
@@ -79,5 +63,5 @@ t_list_va_arg		*delete_arg(t_list_va_arg *arg, unsigned int index)
   if (arg->last_elem == node)
     arg->last_elem = prec;
   free_node(node);
-  return (re_index_arg(arg));
+  return (arg);
 }

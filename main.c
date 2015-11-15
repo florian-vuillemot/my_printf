@@ -3,7 +3,7 @@
 int main()
 {unsigned long int i = 1;
   my_printf("%#lx<\n", i << (sizeof(long int) * 8 - 1));
-  printf("%llx<\n", i << (sizeof(long int) * 8 - 1));
+  printf("%#lx<\n", i << (sizeof(long int) * 8 - 1));
   my_printf("%# 26d<\n", 'a');
   printf("%*3$d<\n", -20,'d',5,5);
 
@@ -92,7 +92,6 @@ int main()
   printf("%#+-d<\n", 'a');
   my_printf("%# -+d< %d%d %d\n", 'a',10,11,12);
   printf("%# -+d<\n", 'a');
-
   /* printf("partie 14:\n"); */
   /* my_printf("%1$d %d %d %d %d %2$d %d<\n", 'a',34,32); */
   /* printf("%10$c %d <\n", 'a', 34); */
@@ -104,7 +103,9 @@ int main()
   printf("\n");
   printf("%s%%%d%s","astek",42,"moulinnete");
   printf("\n");
-  printf("%*d%*d%**d%*d%*d\n",10,20,3,50,234,43,11,10,22,32);
-     my_printf("%*d%*d%**d%*d%*d\n",10,20,3,50,234,43,11,10,22,32);
+  //  printf("%*.*d\n",10,15,20);
+ 
+     printf(">%d%d%*d%*.*;%*d\n",10,20,3,50,234,43,11,10,22,32);
+  my_printf(">%d%d%*d%*.*;%*d\n",10,20,3,50,234,43,11,10,22,32,0);
   return (0);
 }

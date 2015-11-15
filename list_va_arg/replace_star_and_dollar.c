@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Sun Nov 15 01:23:44 2015 Florian Vuillemot
+** Last update Sun Nov 15 10:04:11 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -54,7 +54,7 @@ t_string		*get_star(t_string *string, unsigned int cur,
 
   if (!list || !string || !string->string)
     return (NULL);
-  pop = 0;
+  pop = 1;
   va_copy(copy_list, *list);
   while (pop++ < nb_pop)
     va_arg(copy_list, int);
@@ -78,15 +78,15 @@ t_string		*replace_star_and_dollar(t_string *string,
   if (!string || !list || !string->string)
     return (NULL);
   i = 0;
-  nb_pop = 0;
+  nb_pop = 1;
   to_delete = 0;
   while (string && string->string[i])
     {
       if (string->string[i] == '%')
 	{
 	  j = 1;
-	  /* while (string->string[i + j] <= '9' && string->string[i + j] >= '0') */
-	  /*   j++; */
+	  while (string->string[i + j] <= '9' && string->string[i + j] >= '0')
+	    j++;
 	  /* if (j > 1 && string->string[i + j] == '$') */
 	  /*   { */
 	  /*     string = remove_elem_to_string(string, i); */
@@ -95,13 +95,22 @@ t_string		*replace_star_and_dollar(t_string *string,
 	  if (string && string->string[i + j] == '*')
 	    {
 	      string = get_star(string, i + j, nb_pop, list);
-	      stack = delete_arg(stack, nb_pop + 1 - to_delete);
+	      stack = delete_arg(stack, nb_pop++);
 	    }
-	  else
-	    to_delete++;
-	  nb_pop++;
+	  while (string->string[i + j] <= '9' && string->string[i + j] >= '0')
+	    j++;
+	  if (string && string->string[i + j] == '.')
+	    j++;
+	  if (string && string->string[i + j] == '*')
+	    {
+	      string = get_star(string, i + j, nb_pop, list);
+	      stack = delete_arg(stack, nb_pop++);
+	    }
+	  if (string->string[i + j] &&
+	      contain_flag_fct_star(flag, string->string + i + j) > -1)
+	    nb_pop++;
 	}
       i++;
-    }printf("str : %s\n",string->string);
+    }
   return (string);
 }
