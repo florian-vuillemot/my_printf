@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Sun Nov 15 15:25:27 2015 Florian Vuillemot
+** Last update Sun Nov 15 16:59:52 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -52,8 +52,13 @@ static unsigned int	clean_digit_and_dot(t_string *string, unsigned int cur,
   while (string->string[cur] <= '9' && string->string[cur] >= '0')
     cur++;
   if (dot_include)
-    if (string && string->string[cur] == '.')
-      cur++;
+    {
+      if (string && string->string[cur] == '.')
+	cur++;
+      else
+	while (string && string->string[cur] == '*')
+	  cur++;
+    }
   return (cur);
 }
 

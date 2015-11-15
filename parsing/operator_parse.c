@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:49:16 2015 Florian Vuillemot
-** Last update Tue Nov 10 12:36:58 2015 Florian Vuillemot
+** Last update Sun Nov 15 17:12:17 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -60,8 +60,6 @@ unsigned int		clean_all_useless_character(t_string *string,
   return (end);
 }
 
-
-/******************************* UTILE ?? ***********************************/
 unsigned int		remove_all_char_in_string(t_string *string,
 						  unsigned int beg,
 						  unsigned int end,
