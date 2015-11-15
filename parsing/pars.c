@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:40:39 2015 Florian Vuillemot
-** Last update Sun Nov 15 17:23:49 2015 Florian Vuillemot
+** Last update Sun Nov 15 20:20:58 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -80,7 +80,8 @@ t_string		*add_zero_if_percent_dot(t_string *string,
 	  while (string->string[cur] >= '0' && string->string[cur] <= '9')
 	    cur++;
 	  if (string->string[cur] && string->string[cur] == '.' &&
-	      (string->string[cur + 1] > '9' || string->string[cur + 1] < '0'))
+	      (string->string[cur + 1] > '9' || string->string[cur + 1] < '0')
+	      && string->string[cur + 1] != '*')
 	    string = add_elem_to_string(string, cur + 1, '0');
 	}
     }
