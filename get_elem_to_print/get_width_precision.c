@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sun Nov 15 10:16:01 2015 Florian Vuillemot
+** Last update Sun Nov 15 18:41:49 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -22,18 +22,23 @@ t_string		*get_width_precision_string(t_string *str,
   len = my_strlen(node->arg);
   if (w_and_prec->precision > 0)
     node->complete_width = ' ';
-  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width != '0')
+  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
+      && node->complete_width != '0')
     len++;
-  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width == '0')
+  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
+      && node->complete_width == '0')
     {
       if (w_and_prec->width)
 	w_and_prec->width = w_and_prec->width - 1;
-      str = add_elem_to_string(str, cursor++, '+');
+      str = add_elem_to_string(str, cursor++,
+			       node->type == INTEGER_MINUS ? '-' : '+');
     }
   while (w_and_prec->width-- > w_and_prec->precision + len)
     str = add_elem_to_string(str, cursor++, node->complete_width);
-  if (node->type == INTEGER_POS_WITH_PLUS && node->complete_width != '0')
-    str = add_elem_to_string(str, cursor++, '+');
+  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
+      && node->complete_width != '0')
+    str = add_elem_to_string(str, cursor++,
+			     node->type == INTEGER_MINUS ? '-' : '+');
   while (w_and_prec->precision--)
     str = add_elem_to_string(str, cursor++, '0');
   return (insert_string(str, node->arg, cursor));
@@ -61,11 +66,12 @@ t_string		*get_width_precision_string_minus(t_string *string,
   if (!string || !string->string || !nd || !nd->arg || !w_p)
     return (NULL);
   len = my_strlen(nd->arg);
-  if (nd->type == INTEGER_POS_WITH_PLUS)
+  if (nd->type == INTEGER_POS_WITH_PLUS || nd->type == INTEGER_MINUS)
     {
       if (w_p->width > 0)
 	w_p->width = w_p->width - 1;
-      string = add_elem_to_string(string, cur, '+');
+      string = add_elem_to_string(string, cur,
+				  nd->type == INTEGER_MINUS ? '-' : '+');
       cur = cur + 1;
     }
   prec = w_p->precision;

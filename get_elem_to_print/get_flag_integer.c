@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sat Nov 14 21:06:41 2015 Florian Vuillemot
+** Last update Sun Nov 15 18:22:21 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -72,7 +72,7 @@ t_string		*get_flag_integer(t_string *string,
   get_arg(list);
   string = clean_string_and_get_data(string, cursor, &minus, node);
   wi_prec.width = get_field_width(string, *cursor);
-  if (minus > 1 && node->type != TYPE_UNSIGNED)
+  if (minus > 1 && node->type != TYPE_UNSIGNED && node->type != INTEGER_MINUS)
     minus = minus - put_complete_width(string, cursor, &wi_prec, node);
   wi_prec.precision = get_precision(string, *cursor, node);
   string = remove_elem_to_string(string, *cursor);
