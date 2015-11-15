@@ -131,10 +131,14 @@ int main()
      my_printf("%0000+++++++++------------*%\n",10);
      my_printf("%000******+++++********++++++++************%\n",10);
      printf("%000******+++++********++++++++************%\n",10);
-     my_printf("%***\n",10);
-     printf("%***\n",10);
-     printf("%*l!\n",10);
-     my_printf("%*l!\n",10);
+     my_printf("%*%\n",10);
+     printf("%*%\n",10);
+     printf("%lz\n",10);
+     my_printf("%lz\n",10);
+     my_printf("%j\n",10);
+     printf("%j\n",10);
+     printf("%jd!\n",10);
+     my_printf("%jd!\n",10);
      free(string);
   return (0);
 }

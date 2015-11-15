@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov 15 17:14:10 2015 Florian Vuillemot
-** Last update Sun Nov 15 17:30:56 2015 Florian Vuillemot
+** Last update Sun Nov 15 17:36:07 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -43,8 +43,8 @@ t_string		*clean_past_and_bad_flag(t_string *string,
 	  contain_flag_fct(flag, string->string + cur) < 0)
 	{
 	  cur = found_last_char_diff_flag(string, cur);
-	  while (string && string->string[cur] &&
-		 found_char_in_string(string->string[cur], PAST_AND_BAD_FLAG))
+	  if (string && string->string[cur] &&
+	      found_char_in_string(string->string[cur], PAST_AND_BAD_FLAG))
 	    string = remove_elem_to_string(string, cur);
 	}
     }
