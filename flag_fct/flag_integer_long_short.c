@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 15:36:19 2015 Florian Vuillemot
-** Last update Sat Nov 14 19:33:14 2015 Florian Vuillemot
+** Last update Sun Nov 15 11:09:13 2015 Florian Vuillemot
 */
 
 #include		"flag_function.h"
@@ -38,7 +38,7 @@ char			*flag_d(va_list *list, int *type)
 
   if (!list)
     return (NULL);
-  res = va_arg(list, int);
+  res = va_arg(*list, int);
   if (res < 0)
     *type = INTEGER_MINUS;
   else
@@ -52,7 +52,7 @@ char			*flag_ld(va_list *list, int *type)
 
   if (!list)
     return (NULL);
-  res = va_arg(list, long int);
+  res = va_arg(*list, long int);
   if (res < 0)
     *type = INTEGER_MINUS;
   else
@@ -66,7 +66,7 @@ char			*flag_lld(va_list *list, int *type)
 
   if (!list)
     return (NULL);
-  res = va_arg(list, long long int);
+  res = va_arg(*list, long long int);
   if (res < 0)
     *type = INTEGER_MINUS;
   else

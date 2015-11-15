@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Sun Nov 15 10:00:14 2015 Florian Vuillemot
+** Last update Sun Nov 15 13:27:17 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -28,6 +28,17 @@ static t_list_va_arg	*init_and_check_var_list_va_arg(t_flag *flag,
   return (res);
 }
 
+void pr(t_list_va_arg *res)
+{
+  t_list_va_arg *l;
+  l = res;
+  while (l->first_elem)
+    {
+      printf("list : %s\n",l->first_elem->arg);
+      l->first_elem = l->first_elem->next;
+    }
+}
+
 t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
 					  va_list *list)
 {
@@ -38,7 +49,7 @@ t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,
   if ((r_str = str) == NULL || list == NULL || flag == NULL ||
       (res = init_and_check_var_list_va_arg(flag, str, list, &num_flag)) == 0)
     return (NULL);
-  while (*r_str)
+  while (*r_str > 0)
     {
       if (*r_str == '%')
 	{
@@ -60,7 +71,7 @@ t_list_va_arg		*add_list_if_star(t_list_va_arg *arg, t_flag *flag,
   unsigned int		i;
   int			nb;
 
-  if (!arg || !str || !list || !flag || !flag->flag_and_fct->flag)
+  if (!arg || !str || !list || !flag || !flag->flag_and_fct)
     return (NULL);
   nb = contain_star(str);
   while (nb-- > 0)
@@ -76,8 +87,9 @@ t_list_va_arg		*add_list_if_star(t_list_va_arg *arg, t_flag *flag,
 	  arg->cursor = arg->first_elem;
 	  arg->last_elem = arg->first_elem;
 	}
-      if (!(arg->last_elem = add_node_va_arg(flag, i, arg->last_elem, list)))
-	return (free_list_va_arg(arg));
+      else
+	if (!(arg->last_elem = add_node_va_arg(flag, i, arg->last_elem, list)))
+	  return (free_list_va_arg(arg));
     }
   return (arg);
 }
