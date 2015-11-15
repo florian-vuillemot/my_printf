@@ -5,10 +5,48 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sun Nov 15 18:41:49 2015 Florian Vuillemot
+** Last update Sun Nov 15 19:39:00 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
+
+static t_string		*add_sign_string_diff_zero(t_string *str, t_node_va_arg *node,
+						   t_width_prec *w_and_prec,
+						   unsigned int *cursor)
+{
+  if (!str || !node || !w_and_prec)
+    return (NULL);
+  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
+      && node->complete_width != '0')
+    {
+      if (node->type == INTEGER_MINUS)
+	str = add_elem_to_string(str, *cursor, '-');
+      else
+	str = add_elem_to_string(str, *cursor, '+');
+      (*cursor)++;
+    }
+  return (str);
+}
+
+static t_string		*add_sign_string_eq_zero(t_string *str, t_node_va_arg *node,
+						 t_width_prec *w_and_prec,
+						 unsigned int *cursor)
+{
+  if (!str || !node || !w_and_prec)
+    return (NULL);
+  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
+      && node->complete_width == '0')
+    {
+      if (w_and_prec->width)
+	w_and_prec->width = w_and_prec->width - 1;
+      if (node->type == INTEGER_MINUS)
+	str = add_elem_to_string(str, *cursor, '-');
+      else
+	str = add_elem_to_string(str, *cursor, '+');
+      (*cursor)++;
+    }
+  return (str);
+}
 
 t_string		*get_width_precision_string(t_string *str,
 						    t_width_prec *w_and_prec,
@@ -25,20 +63,10 @@ t_string		*get_width_precision_string(t_string *str,
   if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
       && node->complete_width != '0')
     len++;
-  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
-      && node->complete_width == '0')
-    {
-      if (w_and_prec->width)
-	w_and_prec->width = w_and_prec->width - 1;
-      str = add_elem_to_string(str, cursor++,
-			       node->type == INTEGER_MINUS ? '-' : '+');
-    }
+  str = add_sign_string_eq_zero(str, node, w_and_prec, &cursor);
   while (w_and_prec->width-- > w_and_prec->precision + len)
     str = add_elem_to_string(str, cursor++, node->complete_width);
-  if ((node->type == INTEGER_POS_WITH_PLUS || node->type == INTEGER_MINUS)
-      && node->complete_width != '0')
-    str = add_elem_to_string(str, cursor++,
-			     node->type == INTEGER_MINUS ? '-' : '+');
+  str = add_sign_string_diff_zero(str, node, w_and_prec, &cursor);
   while (w_and_prec->precision--)
     str = add_elem_to_string(str, cursor++, '0');
   return (insert_string(str, node->arg, cursor));
@@ -70,9 +98,8 @@ t_string		*get_width_precision_string_minus(t_string *string,
     {
       if (w_p->width > 0)
 	w_p->width = w_p->width - 1;
-      string = add_elem_to_string(string, cur,
+      string = add_elem_to_string(string, cur++,
 				  nd->type == INTEGER_MINUS ? '-' : '+');
-      cur = cur + 1;
     }
   prec = w_p->precision;
   while (prec)
