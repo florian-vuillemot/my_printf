@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Sun Nov 15 19:55:18 2015 Florian Vuillemot
+** Last update Sun Nov 15 20:58:51 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -66,9 +66,12 @@ static int		star(t_string **string, unsigned int cursor,
 			      unsigned int nb_pop, va_list *list)
 {
   if (string && *string && (*string)->string && cursor > 0 &&
-      ((*string)->string[cursor - 1] < '0' ||
-       (*string)->string[cursor - 1] > '9') &&
-      (*string)->string[cursor] == '*')
+      ((((*string)->string[cursor - 1] < '0' ||
+	 (*string)->string[cursor - 1] > '9') &&
+	(*string)->string[cursor] == '*') ||
+       (cursor > 1 && (*string)->string[cursor - 1] == '0' &&
+	((*string)->string[cursor - 2] < '0' ||
+	 (*string)->string[cursor - 2] > '9'))))
     {
       *string = get_star(*string, cursor, nb_pop, list);
       return (1);
