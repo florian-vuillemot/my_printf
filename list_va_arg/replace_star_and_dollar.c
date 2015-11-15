@@ -1,11 +1,11 @@
 /*
-** replace_star_and_dollar.c for  in /home/vuille_f/PSU_2015_my_printf/list_va_arg
+** replace_star_and_dollar.c for  in /home/vuille_f/PSU_2015_my_printf/
 ** 
 ** Made by Florian Vuillemot
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Sun Nov 15 15:13:06 2015 Florian Vuillemot
+** Last update Sun Nov 15 15:25:27 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -44,14 +44,16 @@ static unsigned int	clean_beg_string(t_string *string, unsigned int cur)
   return (cur);
 }
 
-static unsigned int	clean_digit_and_dot(t_string *string, unsigned int cur)
+static unsigned int	clean_digit_and_dot(t_string *string, unsigned int cur,
+					    int dot_include)
 {
   if (!string || !string->string)
     return (0);
   while (string->string[cur] <= '9' && string->string[cur] >= '0')
     cur++;
-  if (string && string->string[cur] == '.')
-    cur++;
+  if (dot_include)
+    if (string && string->string[cur] == '.')
+      cur++;
   return (cur);
 }
 
@@ -74,7 +76,7 @@ t_string		*replace_star(t_string *string,
   unsigned int		cur;
   unsigned int		nb_pop;
 
-  if (!string || !list || !string->string || stack || !flag)
+  if (!string || !list || !string->string || !stack || !flag)
     return (string);
   cur = 0;
   nb_pop = 1;
@@ -84,12 +86,10 @@ t_string		*replace_star(t_string *string,
 	cur = clean_beg_string(string, cur);
 	if (string && star(&string, cur, nb_pop, list))
 	  stack = delete_arg(stack, nb_pop++);
-	cur = clean_digit_and_dot(string, cur);
+	cur = clean_digit_and_dot(string, cur, 1);
 	if (string && star(&string, cur, nb_pop, list))
 	  stack = delete_arg(stack, nb_pop++);
-	while (string && string->string &&
-	       string->string[cur] <= '9' && string->string[cur] >= '0')
-	  cur++;
+	cur = clean_digit_and_dot(string, cur, 0);
 	if (string && string->string[cur] &&
 	    contain_flag_fct_star(flag, string->string + cur) > -1)
 	  nb_pop++;
