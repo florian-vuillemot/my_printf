@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:37:00 2015 Florian Vuillemot
-** Last update Sun Nov 15 13:27:17 2015 Florian Vuillemot
+** Last update Sun Nov 15 15:33:31 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -26,17 +26,6 @@ static t_list_va_arg	*init_and_check_var_list_va_arg(t_flag *flag,
   res->last_elem = NULL;
   *num_flag = 0;
   return (res);
-}
-
-void pr(t_list_va_arg *res)
-{
-  t_list_va_arg *l;
-  l = res;
-  while (l->first_elem)
-    {
-      printf("list : %s\n",l->first_elem->arg);
-      l->first_elem = l->first_elem->next;
-    }
 }
 
 t_list_va_arg		*init_list_va_arg(t_flag *flag, char *str,

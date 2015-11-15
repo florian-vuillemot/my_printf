@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:40:39 2015 Florian Vuillemot
-** Last update Sat Nov 14 17:35:06 2015 Florian Vuillemot
+** Last update Sun Nov 15 16:15:58 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -26,6 +26,33 @@ t_string		*parse(char *str, t_flag *flag)
 	cursor = analyse_flag(string, cursor + 1, flag);
       else
 	cursor = cursor + 1;
+    }
+  string = add_zero_if_percent_dot(string, flag);
+  return (string);
+}
+
+t_string		*add_zero_if_percent_dot(t_string *string,
+						 t_flag *flag)
+{
+  unsigned int		cur;
+
+  if (!string || !string->string || !flag)
+    return (NULL);
+  cur = 0;
+  while (string->string[cur])
+    {
+      if (string->string[cur++] == '%' &&
+	  contain_flag_fct(flag, string->string + cur) < 0)
+	{
+	  while (string->string[cur] &&
+		 found_char_in_string(string->string[cur], PRIOR_CHARACTER))
+	    cur++;
+	  while (string->string[cur] >= '0' && string->string[cur] <= '9')
+	    cur++;
+	  if (string->string[cur] && string->string[cur] == '.' &&
+	      (string->string[cur + 1] > '9' || string->string[cur + 1] < '0'))
+	    string = add_elem_to_string(string, cur + 1, '0');
+	}
     }
   return (string);
 }

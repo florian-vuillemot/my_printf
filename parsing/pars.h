@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:03:53 2015 Florian Vuillemot
-** Last update Sun Nov  8 13:02:35 2015 Florian Vuillemot
+** Last update Sun Nov 15 16:09:37 2015 Florian Vuillemot
 */
 
 #ifndef			PARSING_H_
@@ -16,6 +16,7 @@
 
 /* pars.c */
 t_string		*parse(char *, t_flag *);
+t_string		*add_zero_if_percent_dot(t_string *, t_flag *);
 unsigned int		analyse_flag(t_string *, unsigned int, t_flag *);
 unsigned int		clean_unnecessary_character(t_string *,
 						     unsigned int,
