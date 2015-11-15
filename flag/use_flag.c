@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 19:30:19 2015 Florian Vuillemot
-** Last update Sat Nov 14 17:17:07 2015 Florian Vuillemot
+** Last update Sun Nov 15 00:39:31 2015 Florian Vuillemot
 */
 
 #include		"flag_and_function.h"
@@ -41,9 +41,24 @@ int			contain_flag_fct(t_flag *flag, char *str)
     str = str + 1;
   if (*str == '.')
     str = str + 1;
-  if (*str == '*')
-    return (cmp_string_and_flag(flag, str + 1));
   while (*str <= '9' && *str >= '0')
+    str = str + 1;
+  return (cmp_string_and_flag(flag, str));
+}
+
+int			contain_flag_fct_star(t_flag *flag, char *str)
+{
+  if (!flag || !flag->flag_and_fct || !str)
+    return (-1);
+  while (*str && found_char_in_string(*str, PRIOR_CHARACTER))
+    str = str + 1;
+  while (*str <= '9' && *str >= '0')
+    str = str + 1;
+  if (*str == '.')
+    str = str + 1;
+  while (*str <= '9' && *str >= '0')
+    str = str + 1;
+  while (*str == '*')
     str = str + 1;
   return (cmp_string_and_flag(flag, str));
 }

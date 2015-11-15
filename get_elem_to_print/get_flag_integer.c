@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sat Nov 14 14:12:08 2015 Florian Vuillemot
+** Last update Sat Nov 14 21:06:41 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -25,6 +25,9 @@ t_string		*get_flag_long(t_string *string,
   while (string && string->string[i] &&
 	 found_char_in_string(string->string[i], TYPE_L_S_P))
     string = remove_elem_to_string(string, i);
+  if (string && string->string[i] &&
+      found_char_in_string(string->string[i], TYPE_H_O))
+    return (get_flag_integer_and_convert(string, cursor, list));
   return (get_flag_integer(string, cursor, list));
 }
 

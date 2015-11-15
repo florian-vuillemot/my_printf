@@ -1,11 +1,11 @@
 /*
-** struct_string.h for struct string in /home/vuille_f/PSU_2015_my_printf/string
+** struct_string.h for struct string in /home/vuille_f
 ** 
 ** Made by Florian Vuillemot
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 14:30:47 2015 Florian Vuillemot
-** Last update Sat Nov 14 16:43:11 2015 Florian Vuillemot
+** Last update Sat Nov 14 22:11:32 2015 Florian Vuillemot
 */
 
 #ifndef			STRUCT_STRING_H_

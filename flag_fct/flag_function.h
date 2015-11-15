@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 16:56:31 2015 Florian Vuillemot
-** Last update Sat Nov 14 10:13:24 2015 Florian Vuillemot
+** Last update Sat Nov 14 21:11:20 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_FUNCTION_H_
@@ -44,12 +44,19 @@ char			*flag_s(va_list *, int *);
 char			*flag_c(va_list *, int *);
 
 
-/* flag_hexa_octal_binaire_unsigned nb_fct += 4 */
+/* flag_hexa_octal_binaire nb_fct += 4 */
 void			get_flag_h_o_b(t_flag_with_fct *, unsigned int *);
 char			*flag_x(va_list *, int *);
 char			*flag_x_maj(va_list *, int *);
 char			*flag_o(va_list *, int *);
 char			*flag_b(va_list *, int *);
+
+/* flag_hexa_octal_binaire_unsigned_long nb_fct += 4 */
+void			get_flag_h_o_b_long(t_flag_with_fct *, unsigned int *);
+char			*flag_x_long(va_list *, int *);
+char			*flag_x_maj_long(va_list *, int *);
+char			*flag_o_long(va_list *, int *);
+char			*flag_b_long(va_list *, int *);
 
 /* flag_j_z nb_fct += 4 */
 void			get_flag_intmax(t_flag_with_fct *, unsigned int *);

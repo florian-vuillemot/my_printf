@@ -5,37 +5,37 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 09:51:03 2015 Florian Vuillemot
-** Last update Sat Nov 14 19:38:00 2015 Florian Vuillemot
+** Last update Sat Nov 14 21:08:28 2015 Florian Vuillemot
 */
 
 #include			"flag_function.h"
 
-void				get_flag_h_o_b(t_flag_with_fct *tab,
-					       unsigned int *nb)
+void				get_flag_h_o_b_long(t_flag_with_fct *tab,
+						    unsigned int *nb)
 {
   if (!tab || !nb)
     return ;
-  tab[*nb].flag_fct = &flag_x;
-  tab[*nb].flag = my_strdup("x");
+  tab[*nb].flag_fct = &flag_x_long;
+  tab[*nb].flag = my_strdup("lx");
   *nb = *nb + 1;
-  tab[*nb].flag_fct = &flag_x_maj;
-  tab[*nb].flag = my_strdup("X");
+  tab[*nb].flag_fct = &flag_x_maj_long;
+  tab[*nb].flag = my_strdup("lX");
   *nb = *nb + 1;
-  tab[*nb].flag_fct = &flag_o;
-  tab[*nb].flag = my_strdup("o");
+  tab[*nb].flag_fct = &flag_o_long;
+  tab[*nb].flag = my_strdup("lo");
   *nb = *nb + 1;
-  tab[*nb].flag_fct = &flag_b;
-  tab[*nb].flag = my_strdup("b");
+  tab[*nb].flag_fct = &flag_b_long;
+  tab[*nb].flag = my_strdup("lb");
   *nb = *nb + 1;
 }
 
-char				*flag_x(va_list *list, int *type)
+char				*flag_x_long(va_list *list, int *type)
 {
   unsigned long int		hexa;
 
   if (!list || !type)
     return (NULL);
-  hexa = (unsigned long int)va_arg(list, unsigned int);
+  hexa = va_arg(list, unsigned long int);
   if (hexa == 0)
     *type = NO_TYPE;
   else
@@ -43,13 +43,13 @@ char				*flag_x(va_list *list, int *type)
   return (convert_hexa(hexa, "0123456789abcdef"));
 }
 
-char				*flag_x_maj(va_list *list, int *type)
+char				*flag_x_maj_long(va_list *list, int *type)
 {
   unsigned long int		hexa;
 
   if (!list || !type)
     return (NULL);
-  hexa = (unsigned long int)va_arg(list, unsigned int);
+  hexa = va_arg(list, unsigned long int);
   if (hexa == 0)
     *type = NO_TYPE;
   else
@@ -57,13 +57,13 @@ char				*flag_x_maj(va_list *list, int *type)
   return (convert_hexa(hexa, "0123456789ABCDEF"));
 }
 
-char				*flag_o(va_list *list, int *type)
+char				*flag_o_long(va_list *list, int *type)
 {
   unsigned long int		oct;
 
   if (!list || !type)
     return (NULL);
-  oct = (unsigned long int)va_arg(list, unsigned int);
+  oct = va_arg(list, unsigned long int);
   if (oct == 0)
     *type = NO_TYPE;
   else
@@ -71,13 +71,13 @@ char				*flag_o(va_list *list, int *type)
   return (convert_octal(oct));
 }
 
-char				*flag_b(va_list *list, int *type)
+char				*flag_b_long(va_list *list, int *type)
 {
   unsigned long int		res;
 
   if (!list || !type)
     return (NULL);
-  res = (unsigned long int)va_arg(list, unsigned int);
+  res = va_arg(list, unsigned long int);
   *type = NO_TYPE;
   return (convert_binaire(res));
 }

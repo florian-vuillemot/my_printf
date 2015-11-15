@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:22:01 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:45:06 2015 Florian Vuillemot
+** Last update Sat Nov 14 23:06:59 2015 Florian Vuillemot
 */
 
 #include			"node_va_arg.h"
@@ -60,4 +60,13 @@ void				free_node_va_arg(t_node_va_arg *arg)
 	free(help_free->arg);
       free(help_free);
     }
+}
+
+void				free_node(t_node_va_arg *arg)
+{
+  if (arg == NULL)
+    return ;
+  if (arg->arg)
+    free(arg->arg);
+  free(arg);  
 }

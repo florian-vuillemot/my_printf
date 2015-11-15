@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:14:09 2015 Florian Vuillemot
-** Last update Tue Nov 10 00:26:07 2015 Florian Vuillemot
+** Last update Sat Nov 14 23:07:29 2015 Florian Vuillemot
 */
 
 #ifndef			NODE_VA_ARG_H_
@@ -29,5 +29,6 @@ t_node_va_arg		*init_node_va_arg(t_flag *, unsigned int,
 t_node_va_arg		*add_node_va_arg(t_flag *, unsigned int,
 					 t_node_va_arg *, va_list *);
 void			free_node_va_arg(t_node_va_arg *);
+void			free_node(t_node_va_arg *);
 
 #endif /* !NODE_VA_ARG_H_ */

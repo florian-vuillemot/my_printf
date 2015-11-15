@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:58:37 2015 Florian Vuillemot
-** Last update Sat Nov 14 10:14:09 2015 Florian Vuillemot
+** Last update Sat Nov 14 21:08:53 2015 Florian Vuillemot
 */
 
 #include		"flag_with_fct.h"
@@ -25,6 +25,7 @@ t_flag_with_fct		*init_flag_with_fct()
   get_flag_string(res, &nb);
   get_flag_intmax(res, &nb);
   get_flag_h_o_b(res, &nb);
+  get_flag_h_o_b_long(res, &nb);
   get_flag_m(res, &nb);
   res[nb].flag_fct = 0;
   res[nb].flag = 0;

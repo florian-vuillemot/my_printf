@@ -1,10 +1,11 @@
 #include "my.h"
+#include <stdio.h>
 int main()
-{
-  my_printf("%ld<\n", -34,43);
-  printf("% +00032d %lu<\n", 'a',43);
+{unsigned long int i = 1;
+  my_printf("%#lx<\n", i << (sizeof(long int) * 8 - 1));
+  printf("%llx<\n", i << (sizeof(long int) * 8 - 1));
   my_printf("%# 26d<\n", 'a');
-  printf("%# 26d<\n", 'a');
+  printf("%*3$d<\n", -20,'d',5,5);
 
   printf("partie 1:\n");
   my_printf("%# 032d<\n", 'a');
@@ -99,10 +100,11 @@ int main()
   /* printf("%2$o %c %c %c<\n", 'a','1','2','3'); */
   /* printf("%2$d<\n", 'a', 32); */
 
-  my_printf("%s%%%d%s","astek",32,"moulkjinl","moulinnete");
+  my_printf("%s%%%d%dasteck%s","astek",32,3,"moulkjinl","moulinnete");
   printf("\n");
   printf("%s%%%d%s","astek",42,"moulinnete");
   printf("\n");
-
+  printf("%*d%*d%**d%*d%*d\n",10,20,3,50,234,43,11,10,22,32);
+     my_printf("%*d%*d%**d%*d%*d\n",10,20,3,50,234,43,11,10,22,32);
   return (0);
 }
