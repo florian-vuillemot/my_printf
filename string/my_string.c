@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Sat Nov  7 15:25:09 2015 Florian Vuillemot
+** Last update Mon Nov 16 22:58:01 2015 Florian Vuillemot
 */
 
 #include "my_string.h"
@@ -53,4 +53,23 @@ char		*my_strdup(char *str)
       result = result + 1;
     }
   return (result - length);
+}
+
+char		*m_strdup(const char *str)
+{
+  char		*result;
+  unsigned int	size;
+
+  if (!str)
+    return (NULL);
+  size = 0;
+  while (str[size])
+    size++;
+  if ((result = malloc(sizeof(char) * (size + 1))) == 0)
+    return (0);
+  result[size] = '\0';
+  size = 0;
+  while ((result[size] = str[size]))
+    size++;
+  return (result);
 }

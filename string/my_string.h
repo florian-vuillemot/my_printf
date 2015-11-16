@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 **
 ** Started on  Wed Oct 21 09:59:41 2015 Florian Vuillemot
-** Last update Wed Nov 11 14:14:29 2015 Florian Vuillemot
+** Last update Mon Nov 16 22:58:25 2015 Florian Vuillemot
 */
 
 #ifndef		MY_STRING_H_
@@ -21,6 +21,7 @@ void		my_putchar(char);
 void		my_putstr(char *);
 unsigned int	my_strlen(char *);
 char		*my_strdup(char *);
+char		*m_strdup(const char *);
 
 /* my_comp_string */
 int		my_strcmp(char *, char *);

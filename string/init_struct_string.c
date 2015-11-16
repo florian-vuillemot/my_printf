@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 14:39:12 2015 Florian Vuillemot
-** Last update Mon Nov 16 15:00:17 2015 Florian Vuillemot
+** Last update Mon Nov 16 22:52:00 2015 Florian Vuillemot
 */
 
 #include		"struct_string.h"
