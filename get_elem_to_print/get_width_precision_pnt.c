@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Fri Nov 13 09:17:01 2015 Florian Vuillemot
+** Last update Mon Nov 16 14:59:49 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
@@ -69,7 +69,6 @@ t_string		*get_width_prec_pnt_convert(t_string *str,
     str = add_elem_to_string(str, cursor++, node->complete_width);
   return (complete_string(str, w_and_prec, cursor, node));
 }
-
 
 static t_string		*add_elem_on_get_width_precision(t_string *string,
 							 unsigned int *cursor,

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Mon Nov 16 10:13:10 2015 Florian Vuillemot
+** Last update Mon Nov 16 16:01:31 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -16,6 +16,7 @@ static t_string		*get_star(t_string *string, unsigned int cur,
   unsigned int		pop;
   va_list		copy_list;
   char			*res;
+  long int		sign;
 
   if (!list || !string || !string->string)
     return (NULL);
@@ -24,9 +25,16 @@ static t_string		*get_star(t_string *string, unsigned int cur,
   while (pop++ < nb_pop)
     va_arg(copy_list, int);
   string = remove_elem_to_string(string, cur);
-  if ((res = my_putnbr_string((long int)va_arg(copy_list, int))) == NULL)
+  sign = (long int)va_arg(copy_list, int);
+  if ((res = my_putnbr_string(sign)) == NULL)
     return (string);
   string = insert_string(string, res, cur);
+  pop = (sign < 0 ? 0 : 5);
+  while (cur > 0 && pop < 2 && string->string[cur] != '%')
+    if (string->string[cur--] == '-')
+      pop++;
+  if (pop == 2 && string->string[cur + 1] == '-')
+    string = remove_elem_to_string(string, cur + 1);
   free(res);
   return (string);
 }

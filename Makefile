@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Mon Nov 16 11:00:38 2015 Florian Vuillemot
+## Last update Mon Nov 16 15:03:34 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -27,7 +27,7 @@ SRCS		=	flag_fct/convert_binary.c				\
 			flag_fct/convert_hexa.c					\
 			flag_fct/convert_octal.c				\
 			flag_fct/flag_hexa_octal_binaire.c			\
-			flag_fct/flag_unsigned_hexa_octal_binaire.c		\
+			flag_fct/flag_unsigned_hexa_octal_binary.c		\
 			flag_fct/flag_integer_long_short.c			\
 			flag_fct/flag_j_z.c					\
 			flag_fct/flag_p.c					\

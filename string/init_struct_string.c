@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 14:39:12 2015 Florian Vuillemot
-** Last update Sun Nov  8 21:01:25 2015 Florian Vuillemot
+** Last update Mon Nov 16 15:00:17 2015 Florian Vuillemot
 */
 
 #include		"struct_string.h"
@@ -60,7 +60,6 @@ t_string		*free_string(t_string *string)
     }
   return (NULL);
 }
-
 
 t_string		*realloc_string(t_string *str_realloc)
 {

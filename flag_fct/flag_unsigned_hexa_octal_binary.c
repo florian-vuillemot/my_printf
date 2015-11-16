@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov 11 09:51:03 2015 Florian Vuillemot
-** Last update Sat Nov 14 21:08:28 2015 Florian Vuillemot
+** Last update Mon Nov 16 15:02:53 2015 Florian Vuillemot
 */
 
 #include			"flag_function.h"
@@ -79,5 +79,5 @@ char				*flag_b_long(va_list *list, int *type)
     return (NULL);
   res = va_arg(list, unsigned long int);
   *type = NO_TYPE;
-  return (convert_binaire(res));
+  return (convert_binary(res));
 }

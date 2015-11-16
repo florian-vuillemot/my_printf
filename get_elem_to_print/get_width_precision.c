@@ -5,12 +5,13 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Mon Nov  9 11:12:42 2015 Florian Vuillemot
-** Last update Sun Nov 15 19:39:00 2015 Florian Vuillemot
+** Last update Mon Nov 16 14:59:32 2015 Florian Vuillemot
 */
 
 #include		"get_elem_to_print.h"
 
-static t_string		*add_sign_string_diff_zero(t_string *str, t_node_va_arg *node,
+static t_string		*add_sign_string_diff_zero(t_string *str,
+						   t_node_va_arg *node,
 						   t_width_prec *w_and_prec,
 						   unsigned int *cursor)
 {
@@ -28,7 +29,8 @@ static t_string		*add_sign_string_diff_zero(t_string *str, t_node_va_arg *node,
   return (str);
 }
 
-static t_string		*add_sign_string_eq_zero(t_string *str, t_node_va_arg *node,
+static t_string		*add_sign_string_eq_zero(t_string *str,
+						 t_node_va_arg *node,
 						 t_width_prec *w_and_prec,
 						 unsigned int *cursor)
 {

@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:10:21 2015 Florian Vuillemot
-** Last update Mon Nov 16 10:54:57 2015 Florian Vuillemot
+** Last update Mon Nov 16 13:35:08 2015 Florian Vuillemot
 */
 
 #ifndef			LIST_VA_ARG_H_
@@ -19,6 +19,12 @@ typedef struct		s_list_va_arg
   t_node_va_arg		*first_elem;
   t_node_va_arg		*last_elem;
 }			t_list_va_arg;
+
+typedef struct		s_len_dollar
+{
+  unsigned int		pop;
+  unsigned int		width;
+}			t_len_dollar;
 
 /* récupére le char* est tout les * qu'il y a dedans */
 t_list_va_arg		*init_list_va_arg(t_flag *, char *, va_list *);
