@@ -5,7 +5,7 @@
 ** Login   <poloss_k@epitech.net>
 ** 
 ** Started on  Sun Nov  8 14:09:49 2015 kevin polossat
-** Last update Sun Nov 15 18:11:37 2015 Florian Vuillemot
+** Last update Mon Nov 16 11:05:56 2015 Florian Vuillemot
 */
 
 #include		<stdlib.h>
@@ -155,7 +155,7 @@ int			main()
   my_printf("  %      s   l    \n", "salut");
   printf("  %      #   !\n");
   my_printf("  %       #      !\n");
-  printf("  %      l         d   \n");
+  printf("  %      l        d   \n");
     my_printf("  %      l        d      \n");
   
   /*   printf("pr%+0*d\n", 5, -33); */

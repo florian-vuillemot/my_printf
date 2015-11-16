@@ -5,7 +5,7 @@
 ## Login   <vuille_f@epitech.net>
 ## 
 ## Started on  Tue Nov  3 13:51:45 2015 Florian Vuillemot
-## Last update Sun Nov 15 20:35:14 2015 Florian Vuillemot
+## Last update Mon Nov 16 11:00:38 2015 Florian Vuillemot
 ##
 
 CC		=	gcc $(LDFLAGS)
@@ -22,8 +22,7 @@ NAME		=	libmy.a
 
 CFLAGS		=	-Wall -Wextra -W #-Werror
 
-SRCS		= 	flag/cmp_string_and_flag.c				\
-			flag_fct/convert_binaire.c				\
+SRCS		=	flag_fct/convert_binary.c				\
 			flag_fct/convert_char_octal.c				\
 			flag_fct/convert_hexa.c					\
 			flag_fct/convert_octal.c				\
@@ -51,8 +50,10 @@ SRCS		= 	flag/cmp_string_and_flag.c				\
 			get_elem_to_print/get_flag_pnt.c			\
 			get_elem_to_print/get_flag_modulo.c			\
 			list_va_arg/get_elem_list_va_arg.c			\
+			list_va_arg/replace_dollar_help_free.c			\
 			list_va_arg/list_va_arg.c				\
 			list_va_arg/node_va_arg.c				\
+			list_va_arg/replace_dollar.c				\
 			list_va_arg/replace_star.c				\
 			parsing/operator_parse.c				\
 			parsing/pars.c						\

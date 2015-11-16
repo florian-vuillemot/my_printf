@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 17:40:39 2015 Florian Vuillemot
-** Last update Sun Nov 15 20:20:58 2015 Florian Vuillemot
+** Last update Mon Nov 16 09:52:27 2015 Florian Vuillemot
 */
 
 #include		"pars.h"
@@ -29,7 +29,6 @@ t_string		*parse(char *str, t_flag *flag)
     }
   string = add_zero_if_percent_dot(string, flag);
   string = delete_star_with_modulo(string, flag);
-  string = clean_past_and_bad_flag(string, flag);
   return (string);
 }
 
@@ -45,16 +44,13 @@ t_string		*delete_star_with_modulo(t_string *string,
   while (string && string->string && string->string[cur])
     {
       if (string->string[cur++] == '%' &&
-	  (nb_flag = contain_flag_fct(flag, string->string + cur)) > -1 &&
+	  (nb_flag = contain_flag_all_star(flag, string->string + cur)) > -1 &&
 	  flag->flag_and_fct[nb_flag].flag[0] == '%')
 	{
 	  while (string && string->string &&
 		 string->string[cur] && string->string[cur] != '%')
 	    {
-	      if (string->string[cur] == '*')
-		string = remove_elem_to_string(string, cur);
-	      else
-		cur++;
+	      string = remove_elem_to_string(string, cur);
 	    }
 	}
     }

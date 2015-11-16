@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 16:56:31 2015 Florian Vuillemot
-** Last update Sat Nov 14 21:11:20 2015 Florian Vuillemot
+** Last update Mon Nov 16 11:00:14 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_FUNCTION_H_
@@ -19,7 +19,7 @@
 # include		"my_string.h"
 # include		"struct_string.h"
 
-/* flag_integer_long_short nb_fct += 5 */
+/* flag_integer_long_short nb_fct += 8 */
 void			get_flag_integer_long_short(t_flag_with_fct *,
 						      unsigned int *);
 char			*flag_d(va_list *, int *);
@@ -78,6 +78,6 @@ char            *convert_octal(unsigned long int);
 /* convert_char_octal nb_fct */
 char			*flag_s_maj(va_list *, int *);
 
-/* convert_binaire */
-char            *convert_binaire(unsigned long int);
+/* convert_binary */
+char            *convert_binary(unsigned long int);
 #endif

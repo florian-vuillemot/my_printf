@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:45:51 2015 Florian Vuillemot
-** Last update Sun Nov 15 09:40:00 2015 Florian Vuillemot
+** Last update Mon Nov 16 09:06:38 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_AND_FCT_H_
@@ -29,5 +29,6 @@ int			cmp_string_and_flag(t_flag *, char *);
 int			contain_flag_fct(t_flag *, char *);
 int			contain_flag_fct_star(t_flag *, char *);
 int			contain_star(char *);
+int			contain_flag_all_star(t_flag *, char *);
 
 #endif /* !FLAG_AND_FCT_H_ */

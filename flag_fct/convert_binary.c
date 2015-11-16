@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 17:40:06 2015 Florian Vuillemot
-** Last update Thu Nov 12 06:36:20 2015 Florian Vuillemot
+** Last update Mon Nov 16 11:02:41 2015 Florian Vuillemot
 */
 
 #include		"my_string.h"
@@ -28,7 +28,7 @@ static int		get_size(unsigned long int nb)
   return (size + 2);
 }
 
-char			*convert_binaire(unsigned long int nb)
+char			*convert_binary(unsigned long int nb)
 {
   char			*res;
   unsigned long int	curs;

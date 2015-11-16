@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Wed Nov  4 16:42:57 2015 Florian Vuillemot
-** Last update Sun Nov 15 08:18:17 2015 Florian Vuillemot
+** Last update Mon Nov 16 10:36:32 2015 Florian Vuillemot
 */
 
 #include	"my_string.h"
@@ -45,7 +45,7 @@ int		my_getnbr(char *str)
   sign = 1;
   while (*str == '-' || *str == '+' || *str == ' ')
     if ((*str)++ == '-')
-      sign = -1;
+      sign = -1 * sign;
   while (*str == '0')
     str = str + 1;
   if (!*str)

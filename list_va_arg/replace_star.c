@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Sat Nov 14 13:07:45 2015 Florian Vuillemot
-** Last update Sun Nov 15 20:58:51 2015 Florian Vuillemot
+** Last update Mon Nov 16 10:13:10 2015 Florian Vuillemot
 */
 
 #include		"list_va_arg.h"
@@ -80,13 +80,13 @@ static int		star(t_string **string, unsigned int cursor,
 }
 
 t_string		*replace_star(t_string *string,
-				      t_list_va_arg *stack,
+				      t_list_va_arg *arg,
 				      t_flag *flag, va_list *list)
 {
   unsigned int		cur;
   unsigned int		nb_pop;
 
-  if (!string || !list || !string->string || !stack || !flag)
+  if (!string || !list || !string->string || !arg || !flag || !arg->first_elem)
     return (string);
   cur = 0;
   nb_pop = 1;
@@ -95,10 +95,10 @@ t_string		*replace_star(t_string *string,
       {
 	cur = clean_beg_string(string, cur);
 	if (string && star(&string, cur, nb_pop, list))
-	  stack = delete_arg(stack, nb_pop++);
+	  arg = delete_arg(arg, nb_pop++);
 	cur = clean_digit_and_dot(string, cur, 1);
 	if (string && star(&string, cur, nb_pop, list))
-	  stack = delete_arg(stack, nb_pop++);
+	  arg = delete_arg(arg, nb_pop++);
 	cur = clean_digit_and_dot(string, cur, 0);
 	if (string && string->string[cur] &&
 	    contain_flag_fct_star(flag, string->string + cur) > -1)
