@@ -5,7 +5,7 @@
 ** Login   <vuille_f@epitech.net>
 ** 
 ** Started on  Tue Nov 10 16:56:31 2015 Florian Vuillemot
-** Last update Mon Nov 16 11:00:14 2015 Florian Vuillemot
+** Last update Mon Nov 16 21:44:10 2015 Florian Vuillemot
 */
 
 #ifndef			FLAG_FUNCTION_H_
@@ -42,7 +42,6 @@ char			*flag_p(va_list *, int *);
 void			get_flag_string(t_flag_with_fct *, unsigned int *);
 char			*flag_s(va_list *, int *);
 char			*flag_c(va_list *, int *);
-
 
 /* flag_hexa_octal_binaire nb_fct += 4 */
 void			get_flag_h_o_b(t_flag_with_fct *, unsigned int *);
